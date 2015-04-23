@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  9 APR 2015 11:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 APR 2015 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -842,64 +842,76 @@ LaTeX Info: Redefining \nameref on input line 113.
 \@outlinefile=\write5
 \openout5 = `linearlogic.out'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
-
- []
-
-[1
+ [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Reference `section:goi' on page 2 undefined on input line 157.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--160
-
+Overfull \hbox (4.18013pt too wide) in paragraph at lines 152--153
+[]\OT1/cmr/m/n/12 An op-er-a-tion that does not arise as nat-u-rally in that co
+n-text is the fol-low-ing ``quadratic''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+LaTeX Warning: Citation `??' on page 2 undefined on input line 156.
+
+
+LaTeX Warning: Citation `??' on page 2 undefined on input line 156.
+
+
+LaTeX Warning: Citation `??' on page 2 undefined on input line 156.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+Underfull \hbox (badness 10000) in paragraph at lines 173--176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 173.
+(hyperref)                removing `\lambda' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 189.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 183.
+[3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 199.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 183.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 183.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 201--204
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--220
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
-[4] [5]
+[5]
 \myBox1=\box49
 \myScoreStart1=\dimen229
 \myCenter1=\dimen230
@@ -909,62 +921,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--211
 \myCenter2=\dimen233
 Normal \dimen register pool exhausted, switching to extended pool.
 \myScoreEnd2=\dimen256
+ [6]
 \myBox3=\box51
 \myScoreStart3=\dimen257
 \myCenter3=\dimen258
 \myScoreEnd3=\dimen259
- [6]
-Underfull \hbox (badness 10000) in paragraph at lines 320--322
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
 
  []
 
-[7] [8] [9]
-Overfull \hbox (7.20468pt too wide) in paragraph at lines 496--497
+[8] [9]
+Overfull \hbox (7.20468pt too wide) in paragraph at lines 512--513
  []|[]| 
  []
 
-[10]
+[10] [11]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 666.
-
-[11]
-
-LaTeX Warning: Reference `section:goi' on page 12 undefined on input line 697.
+d on input line 682.
 
 [12] <xymatrix 4x1 150> [13]
-Underfull \hbox (badness 10000) in paragraph at lines 757--759
+Underfull \hbox (badness 10000) in paragraph at lines 773--775
 
  []
 
-[14] <xymatrix 2x1 100> [15] <xymatrix 2x2 150> <xymatrix 3x1 92> [16] [17]
-<xymatrix 2x2 150> [18] [19]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1067--1088
- [] 
- []
-
-
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1091--1121
+[14] <xymatrix 2x1 100> [15] <xymatrix 2x2 150> [16] <xymatrix 3x1 92> [17]
+[18] <xymatrix 2x2 150> [19]
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1083--1104
  [] 
  []
 
 [20]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1125--1168
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1107--1137
  [] 
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1189--1190
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1141--1184
+ [] 
+ []
+
+
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1205--1206
  []|[]| 
  []
 
 
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1220--1221
+Overfull \hbox (1.57472pt too wide) in paragraph at lines 1236--1237
  []|[][]$\OT1/cmr/m/n/12 (3\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 13)$[] 
  []
 
 
-Overfull \hbox (2.11462pt too wide) in paragraph at lines 1224--1225
+Overfull \hbox (2.11462pt too wide) in paragraph at lines 1240--1241
 \OT1/cmr/m/n/12 The map $[] [][](\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) \OMS/cmsy/
 m/n/12 
  [] [][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) [][]\OMS/cmsy/m/n/
@@ -974,113 +983,120 @@ m/n/12
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1253--1254
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1269--1270
  []|[]| 
  []
 
 
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1286--1287
+Overfull \hbox (1.57472pt too wide) in paragraph at lines 1302--1303
  []|[][]$\OT1/cmr/m/n/12 (3\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 14)$[]| 
  []
 
 [21] <xymatrix 3x2 198> [22] [23] [24]
-Overfull \hbox (4.5164pt too wide) in paragraph at lines 1541--1542
+Overfull \hbox (4.5164pt too wide) in paragraph at lines 1557--1558
  []|[]| 
  []
 
 
-Overfull \hbox (8.04881pt too wide) in paragraph at lines 1608--1609
+Overfull \hbox (8.04881pt too wide) in paragraph at lines 1624--1625
  []|[]| 
- []
-
-
-Overfull \hbox (35.94286pt too wide) in paragraph at lines 1659--1757
- [] 
  []
 
 [25]
-Overfull \hbox (1.39024pt too wide) in paragraph at lines 1764--1764
+Overfull \hbox (35.94286pt too wide) in paragraph at lines 1675--1773
+ [] 
+ []
+
+
+Overfull \hbox (1.39024pt too wide) in paragraph at lines 1780--1780
 []|[]| 
  []
 
 
-Overfull \hbox (0.60289pt too wide) in paragraph at lines 1764--1764
+Overfull \hbox (0.60289pt too wide) in paragraph at lines 1780--1780
 []|\OT1/cmr/m/n/12 =| 
  []
 
 
-Overfull \hbox (0.60289pt too wide) in paragraph at lines 1831--1831
+Overfull \hbox (0.60289pt too wide) in paragraph at lines 1847--1847
 []|\OT1/cmr/m/n/12 =| 
  []
 
 [26]
-Overfull \hbox (1.39024pt too wide) in paragraph at lines 1939--1939
+Overfull \hbox (1.39024pt too wide) in paragraph at lines 1955--1955
 []|[]| 
  []
 
-[27] [28] <xymatrix 2x2 194> [29] <xymatrix 3x1 102> [30] [31] [32] [33]
-LaTeX Font Info:    Try loading font information for U+euf on input line 2526.
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 2278--2281
+
+ []
+
+[29] <xymatrix 3x2 154> [30] <xymatrix 2x2 194> <xymatrix 3x1 102> [31]
+[32] [33] [34] [35]
+LaTeX Font Info:    Try loading font information for U+euf on input line 2582.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [34]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2598.
- [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2598.
+) [36]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2657.
+ [37]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2657.
 
 (./linearlogic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2598.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2598.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2657.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2657.
 
 Package rerunfilecheck Info: File `linearlogic.out' has not changed.
-(rerunfilecheck)             Checksum: 50A7B6C94F213E93E9714A76FA502AEB;584.
+(rerunfilecheck)             Checksum: EED78680A957782552F1A335B7E8E82F;581.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2598.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2657.
  ) 
 Here is how much of TeX's memory you used:
- 19259 strings out of 493315
- 323563 string characters out of 6137904
- 457820 words of memory out of 5000000
- 22109 multiletter control sequences out of 15000+600000
+ 19268 strings out of 493315
+ 323640 string characters out of 6137904
+ 460558 words of memory out of 5000000
+ 22112 multiletter control sequences out of 15000+600000
  23332 words of font info for 98 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,15n,55p,3258b,906s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,55p,3258b,903s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
-exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
-ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2013/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2013/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2013/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2013/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2013/tex
-mf-dist/fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/xypic/xycmbt12.pfb>
-Output written on linearlogic.pdf (35 pages, 426236 bytes).
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
+b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2013/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/xypic/xycmbt12.pfb>
+Output written on linearlogic.pdf (37 pages, 440686 bytes).
 PDF statistics:
- 756 PDF objects out of 1000 (max. 8388607)
- 683 compressed objects within 7 object streams
- 208 named destinations out of 1000 (max. 500000)
+ 786 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 214 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
