@@ -136,50 +136,6 @@
 
 \maketitle
 
-\section{The geometry of interaction}\label{section:goi}
-
-One of the most interesting aspects of linear logic is Girard's program to study the semantics of the cut-elimination process. He calls this the geometry of interaction; see \cite[\S III]{girard_towards} and \cite{girard_goi1,girard_goi2,girard_goi3}. The purpose of this section is to explain some of his ideas and how they have motivated the author's search for geometric models of computation. 
-
-After the work of Turing, G\"odel and Church \cite{soare} computation has become a fundamental concept in mathematics. But what is it, really? One answer is that computation is \emph{what happens} when a Turing machine is iterated, or what happens during the $\beta$-reduction process of the $\lambda$-calculus, or the cut-elimination process of logic. These three models of computation are all equivalent, but each is tied to specific syntax. What is the common essence of these processes? This is a question at least as deep as ``What is space?'' and it would be absurd to expect a final answer \cite{denning}. Nonetheless the search for answers generates interesting mathematics. At a first approach we notice that common to all three of the models of computation listed above is a tension between the \emph{implicit} and the \emph{explicit}. Let us use the computation of Example \ref{example:mult_2} to explain.  
-
-Consider the proofs $\prf{\mathrm{mult}}_2$ and $\church{2}$ and their cut $\prf{\mathrm{mult}}_2 \l \church{2}$. The latter is equivalent under cut-elimination to the cut-free proof $\church{4}$. Since this answer is derived from a deterministic algorithm -- cut-elimination -- the knowledge is certainly \emph{implicit} in the proof $\prf{\mathrm{mult}}_2 \l \church{2}$. But some work was necessary to convert this implicit truth into \emph{explicit} truth. Although this example is a trivial one, the reader can easily imagine a similar calculation whose answer is not as apparent as $2 \times 2 = 4$ -- or, put aside arithmetic and note that the answer $\church{4}$ is not obvious from a glance at the diagram \eqref{cut_mult_2}. This conversion of implicit truth to explicit truth, or \emph{explicitation}, is a fundamental aspect of computation.
-% Moreover, this implicitness arises from the act of identifying the structured object $\inta_A$ which is the output of $\church{2}$ with the ``same'' structured object $\inta_A$ which is the input of $\prf{\mathrm{mult}}_2$.\footnote{The algebraically minded reader who is amused by the scare quotes on the word ``same'' might like to reflect on the distinction between an underived and a derived tensor product with the diagonal bimodule.}
-\\
-
-However, this explicitation process is missing from most mathematical models of computation, which assign to the syntactical gadgets of Turing machines, $\lambda$-calculus or logic mathematical objects and transformations between them. To elaborate: suppose that in linear logic that we have proofs $\pi$ of $A \vdash B$ and $\rho$ of $B \vdash C$, and let $\rho \l \pi$ denote the cut of one against the other, as displayed in the following proof tree:
-\begin{center}
-\AxiomC{$\pi$}
-\noLine\UnaryInfC{$\vdots$}
-\def\extraVskip{5pt}
-\noLine\UnaryInfC{$A \vdash B$}
-\def\extraVskip{2pt}
-\AxiomC{$\rho$}
-\noLine\UnaryInfC{$\vdots$}
-\def\extraVskip{5pt}
-\noLine\UnaryInfC{$B \vdash C$}
-\def\extraVskip{2pt}
-\RightLabel{\scriptsize cut}
-\BinaryInfC{$A \vdash C$}
-\DisplayProof
-\qquad
-\tagarray{\label{goi_prooftree}}
-\end{center}
-Let $\widetilde{\rho\l\pi}$ denote the cut-free proof of $A \vdash C$ produced from $\rho \l \pi$ by the cut-elimination process. We regard this as the output of the program $\rho$ computed on the input $\pi$. In the vector space semantics there is a commutative diagram of linear maps
-\[
-\xymatrix@C+2pc{
-& \den{B} \ar[dr]^-{\den{\rho}}\\
-\den{A} \ar[ur]^-{\den{\pi}}\ar[rr]_-{\den{\rho\l\pi} = \den{\widetilde{\rho\l\pi}}} & & \den{C}
-}
-\]
-On this level, the calculation of output from input is a one-step affair $\den{\pi} \mapsto \den{\rho} \circ \den{\pi}$. This may be contrasted with the syntax, where two steps are involved
-\begin{equation}\label{eq:cut_elim_step}
-\pi \longmapsto \rho \l \pi \longmapsto \widetilde{\rho \l \pi}\,.
-\end{equation}
-The point is that this second step, cut-elimination, is completely invisible in the semantics since both $\rho \l \pi$ and its normalisation have the same denotation -- by construction. The explicitation that happens in the syntax is absent in the semantics.
-
-Girard proposed \cite{girard_towards} that we should look instead for semantics in which the denotations of $\rho \l \pi$ and $\widetilde{\rho\l\pi}$ are distinct and there are ``dynamics'' which generate the latter from the former. He refers to the field of study of such dynamics as the \emph{geometry of interaction}.\footnote{The categorically minded reader may detect a hint of higher-categories: it would be natural to expect that the denotations of a proof and its cut-free normalisation should be $1$-morphisms connected by some structure on the level of $2$-morphisms which models cut-elimination. We will return to this topic below.} The first example of such a semantics, constructed by Girard in \cite{girard_goi1}, has been very influential -- and not only in shedding light on the nature of computation. Since the $\lambda$-calculus may be translated into intuitionistic logic, and from there into intuitionistic linear logic, any semantics of linear logic yields a method for the execution of programs in the $\lambda$-calculus. The geometry of interaction model of linear logic (see below) yields a method of executing programs in which the elementary reduction steps are local -- that is, they do not dependent on global coordination \cite{danos_regnier1,danos_regnier2}. This is closely related to famous work of Lamping on optimal reduction in the $\lambda$-calculus \cite{Gonthier}.
-\\
-
 Girard's original geometry of interaction model \cite{girard_goi1} works as follows: if $\mathbb{H}$ is the Hilbert space of square-summable sequences in $\mathbb{C}$ then he assigns to each proof (in full linear logic) of a sequent $\vdash A_1,\ldots,A_n$ with cuts on formulas $B_1,\ldots,B_m$ a bounded linear operator on $\mathbb{H}^{2m+n}$. Tracing out the $2m$ factors of $\mathbb{H}$ yields an operator on $\mathbb{H}^n$ which agrees with the operator assigned to the cut-free normalisation of the original proof. This operation of ``tracing out the cuts'' is the dynamics which models the process of cut-elimination; it can be rephrased as a sum over paths in a graph associated to the proof \cite{danos_regnier2}.
 
 A simplified example using the vector space semantics can capture the key idea. Let us suppose in the above that $\den{B}$ is a finite-dimensional vector space. Then $\den{\rho} \circ \den{\pi}$ may be computed as a trace
