@@ -136,6 +136,47 @@
 
 \maketitle
 
+\section{The geometry of interaction}\label{section:goi}
+
+One interesting aspect of linear logic is Girard's program to study the semantics of the cut-elimination process; see \cite[\S III]{girard_towards} and \cite{girard_goi1,girard_goi2,girard_goi3}. The purpose of this section is to very briefly explain his idea. As mentioned in the Introduction, the three most common views on what the dynamical process of computation ``is'' are the execution of a Turing machine, $\beta$-reduction in the $\lambda$-calculus, and cut-elimination in sequent calculus. At a first approach we notice that common to all three of these models of computation is a tension between the \emph{implicit} and the \emph{explicit}. We use the computation of Section \ref{section:cut_elim} to explain. 
+
+Consider the proofs $\prf{\mathrm{mult}}_A(2,-)$ and $\church{2}_A$ and their cut $\prf{\mathrm{mult}}_A(2,-) \l \church{2}_A$. The latter is equivalent under cut-elimination to the cut-free proof $\church{4}$. Since this answer is derived from a deterministic algorithm -- cut-elimination -- the knowledge is certainly \emph{implicit} in the proof $\prf{\mathrm{mult}}_A(2,-) \l \church{2}_A$. But some work was necessary to convert this implicit truth into \emph{explicit} truth. Although this example is a trivial one, the reader can easily imagine a similar calculation whose answer is not as apparent as $2 \times 2 = 4$ -- or, put aside arithmetic and note that the answer $\church{4}$ is not obvious from a glance at the diagram \eqref{cut_mult_2}. This \emph{explicitation} is a fundamental aspect of computation, but as the reader can already appreciate, it is difficult to define precisely what we mean by ``explicitness''. This is the problem that a mathematical model of cut-elimination is designed to solve.
+% Moreover, this implicitness arises from the act of identifying the structured object $\inta_A$ which is the output of $\church{2}_A$ with the ``same'' structured object $\inta_A$ which is the input of $\prf{\mathrm{mult}}(2,-)$.\footnote{The algebraically minded reader who is amused by the scare quotes on the word ``same'' might like to reflect on the distinction between an underived and a derived tensor product with the diagonal bimodule.}
+\\
+
+However, this explicitation process is missing from most mathematical models of computation, which assign to the syntactical gadgets of Turing machines, $\lambda$-calculus or logic mathematical objects and transformations between them. To elaborate: suppose that in linear logic that we have proofs $\pi$ of $A \vdash B$ and $\rho$ of $B \vdash C$, and let $\rho \l \pi$ denote the cut of one against the other, as displayed in the following proof tree:
+\begin{center}
+\AxiomC{$\pi$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$A \vdash B$}
+\def\extraVskip{2pt}
+\AxiomC{$\rho$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$B \vdash C$}
+\def\extraVskip{2pt}
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$A \vdash C$}
+\DisplayProof
+\qquad
+\tagarray{\label{goi_prooftree}}
+\end{center}
+Let $\widetilde{\rho\l\pi}$ denote the cut-free proof of $A \vdash C$ produced from $\rho \l \pi$ by the cut-elimination process. We regard this as the output of the program $\rho$ computed on the input $\pi$. In the vector space semantics there is a commutative diagram of linear maps
+\[
+\xymatrix@C+2pc{
+& \den{B} \ar[dr]^-{\den{\rho}}\\
+\den{A} \ar[ur]^-{\den{\pi}}\ar[rr]_-{\den{\rho\l\pi} = \den{\widetilde{\rho\l\pi}}} & & \den{C}
+}
+\]
+On this level, the calculation of output from input is a one-step affair $\den{\pi} \mapsto \den{\rho} \circ \den{\pi}$. This may be contrasted with the syntax, where two steps are involved
+\begin{equation}\label{eq:cut_elim_step}
+\pi \longmapsto \rho \l \pi \longmapsto \widetilde{\rho \l \pi}\,.
+\end{equation}
+The point is that this second step, cut-elimination, is completely invisible in the semantics since both $\rho \l \pi$ and its normalisation have the same denotation -- by construction. The explicitation that happens in the syntax is absent in the semantics.
+
+Girard proposed \cite{girard_towards} that we should look instead for semantics in which the denotations of $\rho \l \pi$ and $\widetilde{\rho\l\pi}$ are distinct and there are ``dynamics'' which generate the latter from the former. He refers to the field of study of such dynamics as the \emph{geometry of interaction}.\footnote{The categorically minded reader will detect the hint of higher-categories: it would be natural to expect that the denotations of a proof and its cut-free normalisation should be $1$-morphisms connected by some structure on the level of $2$-morphisms which models cut-elimination.} The first example of such a semantics constructed by Girard in \cite{girard_goi1} has been influential, although arguably it is still a bit mysterious. Since the $\lambda$-calculus may be translated into intuitionistic logic, and from there into intuitionistic linear logic, any semantics of linear logic yields a method for the execution of programs in the $\lambda$-calculus. One practical application of Girard's geometry of interaction model of linear logic is that it yields a method of executing programs in which the elementary reduction steps are local -- that is, they do not dependent on global coordination \cite{danos_regnier1,danos_regnier2}. This is closely related to famous work of Lamping on optimal reduction in the $\lambda$-calculus \cite{Gonthier}.
+
 \subsection{The $\lambda$-calculus}\label{section:lambda_calc}
 
 At the same time as Turing defined his machines, Church gave another formalisation of the intuitive idea of a computable function in terms of what he called the $\lambda$-calculus \cite{church,selinger}. Both concepts identify the same class of computable functions $\mathbb{N} \lto \mathbb{N}$, but the $\lambda$-calculus is much more natural from the point of category theory, and it also serves as the theoretical underpinning of programming languages like Lisp \cite{mccarthy}. Intuitively, while Turing machines make precise the concept of \emph{logical state} and \emph{state transition}, the $\lambda$-calculus captures in a precise mathematical form the concepts of \emph{variables} and \emph{substitution}. 

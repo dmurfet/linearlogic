@@ -1,9 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{A sketch of future work}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Logic}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{Linear logic}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Diagrams and denotations}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{The vector space semantics}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Cut-elimination}{}% 7
-\BOOKMARK [1][-]{section.5}{The geometry of interaction}{}% 8
-\BOOKMARK [1][-]{appendix.A}{Tangents and proofs}{}% 9
+\BOOKMARK [1][-]{section.2}{A sketch of linear logic as a language}{}% 2
+\BOOKMARK [1][-]{section.3}{Computer programs and the -calculus}{}% 3
+\BOOKMARK [1][-]{section.4}{Linear logic}{}% 4
+\BOOKMARK [1][-]{section.5}{Semantics of linear logic}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Denotations of formulas}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Denotations of proofs}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{The vector space semantics}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Cut-elimination}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{An extended example}{section.6}% 10
+\BOOKMARK [1][-]{section.7}{Second-order linear logic}{}% 11
+\BOOKMARK [1][-]{appendix.A}{Example of cut-elimination}{}% 12
+\BOOKMARK [1][-]{appendix.B}{Tangents and proofs}{}% 13
+\BOOKMARK [1][-]{appendix.C}{Translation}{}% 14
