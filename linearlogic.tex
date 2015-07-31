@@ -12,8 +12,8 @@
 \usetikzlibrary{calc}
 
 \AtEndDocument{\bigskip{\footnotesize%
-  \textsc{Department of Mathematics, University of Southern California} \par  
-  \textit{E-mail address}: \texttt{murfet@usc.edu} \par
+  \textsc{Department of Mathematics, University of Melbourne} \par  
+  \textit{E-mail address}: \texttt{d.murfet@unimelb.edu.au} \par
 }}
 
 % Labels in tabular
@@ -155,14 +155,15 @@ Logic is familiar to mathematicians in other fields primarily as the study of th
 
 There was an analogous phenomenon at the founding of formal symbolic logic, when a central problem was to establish the consistency of arithmetic. While working on this problem Gentzen discovered a new style of presenting proofs, called the \emph{sequent calculus}, in which the set of proofs of any arithmetic proposition is revealed to contain a great deal of redundancy: many apparently different proofs actually have ``the same'' logical content. This redundancy has its origin in applications of \emph{Modus Ponens}, which is known in sequent calculus as the \emph{cut rule}. This rule creates indirection and implicitness in proofs, by making theorems depend on lemmas (whose proofs are somewhere else, hence the indirection). However this implicitness can be ``explicated'' without essentially changing the content of the proof; this deep result is known as Gentzen's \emph{Hauptsatz}. Identifying proofs related by this explicitation (called \emph{cut-elimination}) yields the much more tractable set of \emph{cut-free proofs}, the analogue of the compact manifold of solutions modulo symmetry. By reducing consistency to a problem about cut-free proofs, where it is trivial, Gentzen was able to prove the consistency of arithmetic. For the full details of this story see \cite{??,??}.
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
-%It is still unclear how seriously to take the analogy between explication of proofs and the action on solutions by symmetries of an underlying manifold, but the comparision is not an idle one, as we will explain. 
-  % Algebra and logic are connected in various ways, for example through categorical logic and coherence theorems \cite{??}, topos theory and categories of sheaves \cite{??} and through model theory and its applications in algebraic geometry \cite{??}. Part of the purpose of this note is to provide the necessary background for connections between linear logic, higher categories and algebraic geometry \cite{??} (see Section \ref{section:sketch} of this introduction). 
-  
 The purpose of this article is to introduce the reader to this alternative tradition of logic, with its emphasis on the structure and symmetries of collections of proofs. We will do this using linear logic and its semantics in vector spaces and linear maps. Here the word ``semantics'' has a meaning close to what we mean by \emph{representation} in algebra: the structure of linear logic is encoded in its connectives, deduction rules, and cut-elimination transformations, and some insight into this structure can be gained by mapping it in a structure-preserving way to linear operators on vector spaces.
 
-The outline of the article is as follows: in Section \ref{section:logic} we introduce the $\lambda$-calculus, intuitionistic logic and linear logic, with an emphasis on the role of duplication. In Section \ref{section:diagrammatics} we assign to every proof in intuitionistic linear logic a string diagram and corresponding linear map, and give a detailed example. In Section \ref{section:cut_elim} we turn to cut-elimination, examining a mildly non-trivial example in detail. In Appendix \ref{section:example_lifting} we examine tangent maps in connection with proofs in linear logic. Most of what we have to say is well-known, with the exception of some aspects of the vector space semantics in Section \ref{section:vector_space_sem}. There are many aspects of logic and its connections with other subjects that we cannot cover: for a well-written account of analogies between logic, topology and physics we recommend the survey of Baez and Stay \cite{baez}.
+\vspace{0.3cm}
+
+The outline of the article is as follows: in Section \ref{section:sketch} we give a lightning tour of linear logic by presenting it as an interesting extension of the language of symmetric closed monoidal categories, but omitting all details. Part of the reason why this extension is so interesting is its close connection to concepts of computer science, so in Section \ref{section:lambda_calc} we give a short introduction to the $\lambda$-calculus, an archetypal programming language, in order to be able to make those connections explicit and introduce the basic idea of rewrite rules in a simple context. In Section \ref{section:intro_ll} we define linear logic and study some examples of proofs, before turning in Section \ref{section:diagrammatics} to the semantics in vector spaces. In Section \ref{section:cut_elim} we study cut-elimination, and then in Section \ref{section:second} we discuss second-order linear logic. In Appendix \ref{section:appendix_cut_elim} we give a detailed example of cut-elimination and in Appendix \ref{section:example_lifting} we examine tangent maps in connection with proofs in linear logic. 
+
+Most of what we have to say is well-known, with the exception of some aspects of the vector space semantics in Section \ref{section:vector_space_sem}. There are many aspects of logic and its connections with other subjects that we cannot cover: for a well-written account of analogies between logic, topology and physics we recommend the survey of Baez and Stay \cite{baez}.
 \\
 
 \emph{Acknowledgements.} Thanks to Nils Carqueville, Jesse Burke, and Andante.
@@ -170,7 +171,9 @@ The outline of the article is as follows: in Section \ref{section:logic} we intr
 
 \section{A sketch of linear logic as a language}\label{section:sketch}
 
-Linear logic was introduced by Girard in the 1980s and has been the subject of active study ever since. Its special features make it naturally connected with algebra (broadly interpreted). At root this connection is linguistic: symmetric closed monoidal categories are ubiquitous in algebra, and their formal language is a subset of linear logic. For example, writing $(-) \multimap (-)$ for the internal Hom in a symmetric closed monoidal category $\cat{C}$, there is for any triple of objects $a,b,c \in \cat{C}$ a canonical map
+Linear logic was introduced by Girard in the 1980s \cite{girard_llogic} and it has been actively studied ever since, in both computer science and mathematical logic. Its unique features as a logic make it naturally connected with algebra (broadly interpreted). At its root this connection between the two subjects is linguistic: symmetric closed monoidal categories are ubiquitous in algebra, and their formal language is a subset of linear logic. 
+
+For example, writing $(-) \multimap (-)$ for the internal Hom in a symmetric closed monoidal category $\cat{C}$, there is for any triple of objects $a,b,c \in \cat{C}$ a canonical map
 \begin{equation}\label{eq:comp_map_intro}
 (a \multimap b) \otimes (b \multimap c) \lto a \multimap c
 \end{equation}
@@ -219,7 +222,7 @@ Even without formally defining what a proof is (this will be done in Section \re
 
 %To describe the more interesting parts, it will be helpful to talk about a proof as being a kind of \emph{machine}: for example, once we hand the proof \eqref{comp_machine_intro} a specification for objects $a,b,c$ of some category $\cat{C}$, we can imagine it methodically following the instructions embodied in the three downwards arrows of \eqref{eq:construct_comp_catt} until it has constructed the internal composition map relating $a,b,c$. The upshot is that our proof is a machine which composes arrows.
 
-Happily, symmetric closed monoidal categories are the \emph{least} interesting part of linear logic. Things become more interesting when we start to talk about natural operations on morphisms in $\cat{C}$ that cannot be encoded by a diagram like \eqref{eq:construct_comp_catt} built up inductively from adjunction and pre- and post-composition with maps already constructed. For example, the operation which takes as input an object $a$, an endomorphism $f: a \lto a$, and returns the square $f \circ f$ has no such description (why?). However, this operation \emph{is} described by a proof in linear logic, namely:
+Happily, symmetric closed monoidal categories are the \emph{least} interesting part of linear logic. Things become more interesting when we start to talk about natural operations on morphisms in $\cat{C}$ that cannot be encoded by a diagram like \eqref{eq:construct_comp_catt}. For example, there is the operation which takes as input an object $a$, an endomorphism $f: a \lto a$, and returns the square $f \circ f$, and this has no such description (why?). However, this operation \emph{is} described by a proof in linear logic, namely:
 \begin{center}
 \AxiomC{}
 \UnaryInfC{$A \vdash A$}
@@ -243,7 +246,7 @@ Happily, symmetric closed monoidal categories are the \emph{least} interesting p
 \qquad
 \tagarray{\label{church_2_intro}}
 \end{center}
-This proof involves a new connective $!$ called the \emph{exponential}, but we recognise that until the fourth line, this is the earlier proof with $A$ substituted for $B,C$. Since that proof was presenting the operation of composition, it only takes a small leap of imagination to see the proof \eqref{church_2_intro} as a gadget which takes a morphism $f: a \lto a$ and duplicates it, feeding $f,f$ into the composition operation to obtain $f \circ f$. The aim of this note is that, by the end, the reader will be able to look at \eqref{church_2_intro} and see all of this immediately.
+This proof involves a new connective $!$ called the \emph{exponential}, but we recognise that until the fourth line, this is the earlier proof with $A$ substituted for $B,C$. Since that proof was presenting the operation of composition, it only takes a small leap of imagination to see the proof \eqref{church_2_intro} as a gadget which takes a morphism $f: a \lto a$ and duplicates it, feeding $f,f$ into the composition operation to obtain $f \circ f$.
 
 The range of operations that can be defined using $!$ is significantly larger. For example any integer can be encoded as proof (in fact \eqref{church_2_intro} is an encoding of the number $2$) and addition and multiplication of integers can be also encoded. However for these operations to have an internal meaning in the same way that composition does, the category $\cat{C}$ needs to be equipped with additional structure. This turns out to be a comonad ${!}: \cat{C} \lto \cat{C}$ which interprets the exponential in the same way that the internal Hom $\multimap: \cat{C} \times \cat{C} \lto \cat{C}$ interprets linear implication. The category of (possibly infinite dimensional) vector spaces and linear maps is one such category, when it is equipped with the endofunctor $!$ sending a vector space to the cofree cocommutative coalgebra generated by it.
 
@@ -288,6 +291,8 @@ The range of operations that can be defined using $!$ is significantly larger. F
 TODO
 Cite Section 2.4.2 of Benton for abelian groups
 
+WHY are we talking about the calculus?
+
 \section{Computer programs and the $\lambda$-calculus}\label{section:lambda_calc}
 
 Around the same time as Turing defined his machines, Church gave a different formalisation of the idea of a computable function called the $\lambda$-calculus \cite{church,selinger}. Both concepts identify the same class of computable functions $\mathbb{N} \lto \mathbb{N}$, but the $\lambda$-calculus is more natural from the point of category theory, and it serves as the theoretical underpinning of functional programming languages like Lisp \cite{mccarthy} and Haskell. Intuitively, while Turing machines make precise the concept of \emph{logical state} and \emph{state transition}, the $\lambda$-calculus captures the concepts of \emph{variables} and \emph{substitution}. 
@@ -300,7 +305,7 @@ where $M,N$ are terms and $x$ is any variable. The terms of the first type are c
 \begin{equation}
 T := ( \lambda y \,.\, ( \lambda x \,.\, (y \,(y \; x))))\,.
 \end{equation}
-Note that the particular variables chosen are not important, but the pattern of occurrences of the \emph{same} variable certainly is. That is to say, we deal throughout with terms up to an equivalence relation called $\alpha$-conversion, under which for example $T$ is equivalent to the term $( \lambda z \,.\, ( \lambda t \,.\, (z \,(z \; t))))$. Following standard practice, we will adopt this convention.
+Note that the particular variables chosen are not important, but the pattern of occurrences of the \emph{same} variable certainly is. That is to say, we deal throughout with terms up to an equivalence relation called $\alpha$-conversion which allows us to rename variables in a consistent way. For example $T$ is equivalent to the term $( \lambda z \,.\, ( \lambda t \,.\, (z \,(z \; t))))$.
 
 If we are supposed to think of $T$ as a program, we must describe what this program \emph{does}. The dynamic content of the $\lambda$-calculus arises from a rewrite rule called \emph{$\beta$-reduction} generated by the following basic rewrite rule
 \begin{equation}\label{eq:basic_beta_reduction}
@@ -314,25 +319,29 @@ In terms of the rewriting of terms generated by $\beta$-reduction, let us now ex
 \begin{equation}\label{eq:beta_reduc_dup}
 (T \, M) = (( \lambda y \,.\, ( \lambda x \,.\, (y \,(y \; x))))\, M) \longrightarrow_\beta (\lambda x \, . \, (M \, (M \; x)))\,.
 \end{equation}
-Thus $(T \, M)$ behaves like the square of $M$, in the sense that it is a program which takes a single input $x$ and returns $(M \, (M \; x))$. If we modify $T$ by nesting more than two function applications, we can define for each integer $n \ge 0$ a term $\underline{n}$ called the $n$th \emph{Church numeral} \cite[\S 3.2]{selinger}. This program has the property that $(\underline{n} \, M)$ behaves like the $n$th power of $M$. The Church numberal $\church{2}$, which is our old friend $T$, will be our object of study throughout this note.\footnote{To put this into a broader context: once the integers have been translated into terms in the $\lambda$-calculus it makes sense to say that a program $F$ \emph{computes} a function $f: \mathbb{N} \lto \mathbb{N}$ if for each $n \ge 0$ we have $(F \; \underline{n}) =_\beta \underline{f(n)}$. A function $f$ is called \emph{computable} if there is such a term $F$.}
+Thus $(T \, M)$ behaves like the square of $M$, in the sense that it is a program which takes a single input $x$ and returns $(M \, (M \; x))$. For this reason $T$ is the incarnation of the numeral $2$ in the $\lambda$-calculus, and it is referred to as a \emph{Church numeral} \cite[\S 3.2]{selinger}.
+%If we modify $T$ by nesting more than two function applications, we can define for each integer $n \ge 0$ a term $T_n$ called the $n$th \emph{Church numeral}  with the property that $(T_n \, M)$ behaves like the $n$th power of $M$. 
 %\footnote{This class of functions agrees with the class of functions $\mathbb{N} \lto \mathbb{N}$ which may be implemented on a Turing machine, and with G\"odel's general recursive functions. That these classes all match the intuitive notion of what it means for a function to be computable is the belief known as the Church-Turing thesis.}
 %Let's see what happens when we feed this resulting program some other input $N$
 %\begin{align*}
 %((T \, M) \, N) &\longrightarrow_\beta ((\lambda x \, . \, (M \, (M \; x))) \, N) %\longrightarrow_\beta (M \, (M \; N))\,.
 %\end{align*}
 
-We have now defined the $\lambda$-calculus and introduced our basic example of a program, the Church numeral $\church{2}$. The emphasis in this article is on the structure of sets of proofs, and this is turns out to be closely related to the structure of sets of \emph{programs}, that is, $\lambda$-terms. Let $D$ denote the set of all $\beta$-equivalence classes of $\lambda$-terms. This is a fabulously complicated set: consider that for example $T$ defines a function
+We have now defined the $\lambda$-calculus and introduced our basic example of a program, the Church numeral $T$. The emphasis in this article is on the structure of sets of proofs, and this is turns out to be closely related to the structure of sets of \emph{programs}, that is, $\lambda$-terms. Let $D$ denote the set of all $\beta$-equivalence classes of $\lambda$-terms. This is a fabulously complicated set: consider that for example $T$ defines a function
 \begin{gather*}
 T: D \lto D,\\
 [M] \mapsto [(T \, M)]\,.
 \end{gather*}
-and the same is true of any term. The discovery of the first mathematical model of this structure by Dana Scott \cite{scott} was an important milestone in the development of computer science, and it marked the beginning of the field called \emph{denotational semantics}. For our purposes, however, the full $\lambda$-calculus is \emph{too} complicated. There is a much weaker version called the simply-typed $\lambda$-calculus which is more closely related to linear logic.
+and the same is true of any term. The discovery of the first mathematical model of this structure by Dana Scott \cite{scott} was an important milestone in the development of computer science, and it marked the beginning of the field called \emph{denotational semantics}. 
 
-The reader familiar with programming will know that functions in many programming languages are \emph{typed} by their input and output specification. For instance, a function computing the $n$th Fibonacci number in the language C takes an input of type ``int'' -- the integer $n$ -- and returns an output also of type ``int''. In the \emph{simply-typed} $\lambda$-calculus the Church numeral $\church{2}$ is the same as before, but with type annotations
+For our purposes, however, the full $\lambda$-calculus is too complicated and its denotational semantics too far from algebra. The \emph{simply-typed} $\lambda$-calculus is a variant which is more closely related to linear logic. The reader familiar with programming will know that functions in many programming languages are \emph{typed} by their input and output specification. For instance, a function computing the $n$th Fibonacci number in the language C takes an input of type $\inta$ and returns an output of type $\inta$, and thus we say the program itself has type $\inta \rightarrow \inta$. In the simply-typed $\lambda$-calculus terms are all annotated with their type. For example the annotated version of the Church numeral $T$ is
 \[
 T_{typed} := ( \lambda y^{A \rightarrow A} \,.\, ( \lambda x^A \,.\, (y \,(y \; x))))\,.
 \]
-These annotations indicate that the first input $y$ is restricted to be of the type of a function from $A$ to $A$ (that is, of type $A \rightarrow A$) while $x$ is restricted to be of type $A$. Overall $T_{typed}$ takes a term of type $A \rightarrow A$ and returns another term of the same type, so it is a term of type $(A \rightarrow A) \rightarrow (A \rightarrow A)$. For a more complete discussion see \cite[\S 6]{selinger}. 
+These annotations indicate that the first input $y$ is restricted to be of the type of a function from $A$ to $A$ (that is, of type $A \rightarrow A$) while $x$ is restricted to be of type $A$. Overall $T_{typed}$ takes a term of type $A \rightarrow A$ and returns another term of the same type, so it is a term of type $(A \rightarrow A) \rightarrow (A \rightarrow A)$. For a more complete discussion see \cite[\S 6]{selinger}. It remains true that for a term $M$ of type $A \rightarrow A$ we have
+\[
+(T_{typed} \,\, M) =_{\beta} (\lambda x^A \, . \, (M \, (M \; x)))
+\]
 
 %Now if we let $[A \rightarrow A]$ denote the set of all $\beta$-equivalence classes of terms of type $A \rightarrow A$ then $T_{typed}$ defines a function
 %\begin{gather*}
@@ -359,9 +368,9 @@ These annotations indicate that the first input $y$ is restricted to be of the t
 
 % The standard way to introduce linear logic is to compare it to classical logic, but to take this route we would have to assume familiarity with the sequent calculus for intuitionistic logic, which we do not wish to do. Instead, reversing the usual order of presentation, we will explain linear logic as the language of a closed symmetric monoidal category $\cat{C}$ equipped with a 
 
-There are two main styles of formal mathematical proofs: Hilbert style systems, which most mathematicians will be exposed to as undergraduates, and natural deduction or sequent calculus systems, which are taught to students of computer science. What these two styles share is that they are about propositions (or sequents) and their proofs, which are constructed from axioms via deduction rules. The differences lie in the way that proofs are formatted and manipulated as objects on the page. In this note we will consider only the sequent calculus style of logic, since it is more naturally connected to category theory. The proofs \eqref{comp_machine_intro} and \eqref{church_2_intro} from the introduction are examples of such proofs.
+There are two main styles of formal mathematical proofs: Hilbert style systems, which most mathematicians will be exposed to as undergraduates, and natural deduction or sequent calculus systems, which are taught to students of computer science. What these two styles share is that they are about propositions (or sequents) and their proofs, which are constructed from axioms via deduction rules. The differences lie in the way that proofs are formatted and manipulated as objects on the page. In this note we will consider only the sequent calculus style of logic, since it is more naturally connected to category theory.
 
-In \emph{linear logic}\footnote{We consider propositional intuitionistic linear logic without additives, with the exception of Section \ref{??} where we add quantifiers.} there are propositional variables $x,y,z,\ldots$, two binary connectives $\multimap$ (linear implication), $\otimes$ (tensor) and a single unary connective $!$ (the exponential). There is a single constant $1$. The set of \emph{formulas} is defined recursively as follows: any propositional variable or constant is a formula, and if $A,B$ are formulas then so are
+In \emph{linear logic}\footnote{We consider propositional intuitionistic linear logic without additives, with the exception of Section \ref{section:second} where we add quantifiers.} there are propositional variables $x,y,z,\ldots$, two binary connectives $\multimap$ (linear implication), $\otimes$ (tensor) and a single unary connective $!$ (the exponential). There is a single constant $1$. The set of \emph{formulas} is defined recursively as follows: any propositional variable or constant is a formula, and if $A,B$ are formulas then so are
 \[
 A \multimap B, \qquad A \otimes B, \qquad {!}A\,.
 \]
@@ -378,14 +387,16 @@ with formulas $A_1,\ldots,A_n, B$ of the logic connected by a \emph{turnstile} $
 More precisely, let us define a \emph{pre-proof} to be a rooted tree whose edges are labelled with sequents. In order to follow the logical ordering, the tree is presented with its root vertex at the bottom of the page, and we orient edges towards the root (so downwards). The labels on incoming edges at a vertex are called \emph{hypotheses} and on the outgoing edge the \emph{conclusion}. For example consider the following tree, and its equivalent presentation in sequent calculus notation:
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\begin{tikzpicture}[scale=0.6,auto]
+\begin{tikzpicture}
+[inner sep=0.5mm,scale=0.6,auto,place/.style={circle,draw=blue!50,fill=blue!20,thick},
+transition/.style={circle,draw=black,fill=black}]
 \node (topl) at (-2,2) {$\Gamma \vdash A$};
 \node (topr) at (2,2) {$\Delta \vdash B$};
 \node (bottomm) at (0,-2) {$\Gamma, \Delta \vdash A \otimes B$};
-\node (mid) at (0,0) {};
-\draw (bottomm) -- (mid);
-\draw (mid) -- (topr);
-\draw (mid) -- (topl);
+\node (o) at (0,0) [transition] {};
+\draw (bottomm) -- (o);
+\draw (o) -- (topr);
+\draw (o) -- (topl);
 \end{tikzpicture}
 &
 \AxiomC{$\Gamma \vdash A$} \AxiomC{$\Delta \vdash B$}
@@ -456,21 +467,23 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
 \AxiomC{$\Gamma \vdash A$} 
-\AxiomC{$A, \Delta \vdash B$}
+\AxiomC{$\Delta', A, \Delta \vdash B$}
 \LeftLabel{(Cut): }
 \RightLabel{\scriptsize cut}
-\BinaryInfC{$\Gamma, \Delta \vdash B$}
+\BinaryInfC{$\Delta',\Gamma, \Delta \vdash B$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
 \node (top) at (0,4) {$B$};
-\node (bottoml) at (-2,-2) {$\Gamma$};
+\node (bottom_mid) at (0,-2) {$\Gamma$};
 \node (bottomr) at (2,-2) {$\Delta$};
-\bluenode (1) at (-2,0) {};
+\node (bottoml) at (-2,-2) {$\Delta'$};
+\bluenode (1) at (0,0) {};
 \bluenode (2) at (0,2) {};
-\draw (bottoml) -- (1);
-\draw[out=90,in=180] (1) to node {$A$} (2);
+\draw (bottom_mid) -- (1);
+\draw[out=90,in=270] (1) to node {$A$} (2);
 \draw[out=90,in=0] (bottomr) to (2);
+\draw[out=90,in=180] (bottoml) to (2);
 \draw (2) -- (top);
 \end{tikzpicture}
 &
@@ -508,10 +521,10 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Left tensor ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma, A, B \vdash C$}
+\AxiomC{$\Gamma, A, B, \Delta \vdash C$}
 \LeftLabel{(Left $\otimes$): }
 \RightLabel{\scriptsize $\otimes$-$L$}
-\UnaryInfC{$\Gamma, A \otimes B \vdash C$}
+\UnaryInfC{$\Gamma, A \otimes B, \Delta \vdash C$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
@@ -562,25 +575,27 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Left Hom ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma \vdash A$} \AxiomC{$B, \Delta \vdash C$}
+\AxiomC{$\Gamma \vdash A$} \AxiomC{$\Delta', B, \Delta \vdash C$}
 \LeftLabel{(Left $\multimap$): }
 \RightLabel{\scriptsize $\multimap L$ }
-\BinaryInfC{$\Gamma, A \multimap B, \Delta \vdash C$}
+\BinaryInfC{$\Delta', \Gamma, A \multimap B, \Delta \vdash C$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
-\node (topr) at (1,2) {$C$};
-\bluenode (q) at (-3,-4) {};
-\bluenode (o) at (1,0) {};
+\node (topr) at (0,2) {$C$};
+\bluenode (q) at (-1.5,-4) {};
+\bluenode (o) at (0,0) {};
 \node (delta) at (3.5,-6) {$\Delta$};
-\node (gamma) at (-3, -6) {$\Gamma$};
-\node (ab) at (1,-6) {$A \multimap B$};
+\node (deltap) at (-3.5,-6) {$\Delta'$};
+\node (gamma) at (-1.5, -6) {$\Gamma$};
+\node (ab) at (1.5,-6) {$A \multimap B$};
 \draw[out=90,in=0] (delta) to (o);
+\draw[out=90,in=180] (deltap) to (o);
 \draw (o) to (topr);
-\draw[out=90,in=180] (-1,-2) to node {$B$} (o);
+\draw[out=90,in=270] (0,-2) to node [swap] {$B$} (o);
 \draw[out=90,in=270] (gamma) to (q);
-\draw[out=90,in=180] (q) to node {$A$} (-1,-2);
-\draw[out=90,in=0] (ab) to (-1,-2);
+\draw[out=90,in=180] (q) to node {$A$} (0,-2);
+\draw[out=90,in=0] (ab) to (0,-2);
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_lefthom}}
@@ -615,23 +630,24 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Dereliction ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma, A \vdash B$}
+\AxiomC{$\Gamma, A, \Delta \vdash B$}
 \LeftLabel{(Dereliction): }
 \RightLabel{\scriptsize der}
-\UnaryInfC{$\Gamma, !A \vdash B$}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
 \node (top) at (0,2) {$B$};
 \bluenode (o) at (0,0) {};
-\dernode (d) at (2,-2) {};
+\dernode (d) at (0,-2) {};
 \node (gamma) at (-2, -4) {$\Gamma$};
-\node (banga) at (2,-4) {$!A$};
+\node (delta) at (2, -4) {$\Delta$};
+\node (banga) at (0,-4) {$!A$};
 \drawbang (banga) -- (d);
 \draw (o) -- (top);
-\draw[out=90,in=0] (d) to node [swap] {$A$} (o);
-\draw (gamma) to (-2,-2);
-\draw[out=90,in=180] (-2,-2) to (o);
+\draw[out=90,in=270] (d) to node [swap] {$A$} (o);
+\draw[out=90,in=0] (delta) to (o);
+\draw[out=90,in=180] (gamma) to (o);
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_der}}
@@ -641,23 +657,24 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Contraction ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma, !A, !A \vdash B$}
+\AxiomC{$\Gamma, !A, !A, \Delta \vdash B$}
 \LeftLabel{(Contraction): }
 \RightLabel{\scriptsize ctr}
-\UnaryInfC{$\Gamma, !A \vdash B$}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
 \node (top) at (0,2) {$B$};
 \bluenode (o) at (0,0) {};
 \node (gamma) at (-2, -4) {$\Gamma$};
-\node (banga) at (2,-4) {$!A$};
-\drawbang (banga) -- (2,-2);
+\node (delta) at (2, -4) {$\Delta$};
+\node (banga) at (0,-4) {$!A$};
+\drawbang (banga) -- (0,-2);
 \draw (o) -- (top);
-\drawbang[out=90,in=0] (2,-2) to (o);
-\drawbang[out=180,in=270] (2,-2) to (o);
-\draw (gamma) to (-2,-2);
-\draw[out=90,in=180] (-2,-2) to (o);
+\drawbang[out=0,in=325] (0,-2) to (o);
+\drawbang[out=180,in=215] (0,-2) to (o);
+\draw[out=90,in=0] (delta) to (o);
+\draw[out=90,in=180] (gamma) to (o);
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_contr}}
@@ -667,21 +684,23 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Weakening ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma \vdash B$}
+\AxiomC{$\Gamma, \Delta \vdash B$}
 \LeftLabel{(Weakening): }
 \RightLabel{\scriptsize weak}
-\UnaryInfC{$\Gamma, !A \vdash B$}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
-\node (topl) at (-1,2) {$B$};
-\node (bottoml) at (-1,-2) {$\Gamma$};
-\node (bottomr) at (1,-2) {$!A$};
-\bluenode (l) at (-1,0) {};
-\draw (bottoml) -- (l);
-\draw (l) -- (topl);
-\drawbang (bottomr) -- (1,0);
-\node[circle,draw=teal!50,fill=teal!50,inner sep=0.5mm] at (1,0) {};
+\node (top) at (0,2) {$B$};
+\bluenode (o) at (0,0) {};
+\node (gamma) at (-2, -3) {$\Gamma$};
+\node (delta) at (2, -3) {$\Delta$};
+\node (banga) at (0,-3) {$!A$};
+\drawbang (banga) -- (0,-1);
+\draw (o) -- (top);
+\draw[out=90,in=0] (delta) to (o);
+\draw[out=90,in=180] (gamma) to (o);
+\node[circle,draw=teal!50,fill=teal!50,inner sep=0.5mm] at (0,-1) {};
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_weak}}
@@ -691,20 +710,23 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 % Left 1 ======
 \begin{center}
 \begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
-\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma, \Delta \vdash A$}
 \LeftLabel{(Left $1$): }
 \RightLabel{\scriptsize $1$-$L$}
-\UnaryInfC{$\Gamma, 1 \vdash A$}
+\UnaryInfC{$\Gamma, 1, \Delta \vdash A$}
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
-\node (topl) at (-1,3) {$B$};
-\node (bottoml) at (-1,-3) {$\Gamma$};
-\node (bottomr) at (1,-3) {$k$};
-\bluenode (l) at (-1,1) {};
-\draw (bottoml) -- (l);
-\draw (l) -- (topl);
-\draw[out=90,in=0] (bottomr) to (-1,-0.5);
+\node (top) at (0,2) {$B$};
+\bluenode (o) at (0,0) {};
+\node (gamma) at (-2, -3) {$\Gamma$};
+\node (delta) at (2, -3) {$\Delta$};
+\node (one) at (0,-3) {$1$};
+\draw (o) -- (top);
+\draw (gamma) to (-2,-1.5);
+\draw[out=90,in=180] (-2,-1.5) to (o);
+\draw[out=90,in=0] (delta) to (o);
+\draw[out=90,in=0] (one) to (-2,-1.5);
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_left1}}
@@ -721,18 +743,14 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 \DisplayProof
 &
 \begin{tikzpicture}[scale=0.6,auto]
-\node (top) at (0,1) {$k$};
-\node (bottom) at (0,-1) {$k$};
+\node (top) at (0,1) {$1$};
+\node (bottom) at (0,-1) {$1$};
 \draw (bottom) -- (top);
 \end{tikzpicture}
 &
 \tagarray{\label{deduction_rule_right1}}
 \end{tabular}
 \end{center}
-
-% For the examples in this paper, the relevant deduction rules are the axiom rule, the cut rule, the right and left $\multimap$ introduction rules, the contraction rule and the promotion and dereliction rules. 
-
-What about permutations? I mean the deduction rules need things in certain places.
 
 \begin{example}\label{example:first_occur_2} For any formula $A$ let $\church{2}_A$ denote the proof \eqref{church_2_intro} from Section \ref{section:sketch}, which we repeat here for the reader's convenience:
 \begin{center}
@@ -764,7 +782,9 @@ For convenience in what follows we will also write $\church{2}_A$ for the proof 
 \end{example}
 %  Although the proof obviously has a structure similar to \eqref{church_2_prooftree_classic} notice that there is a conversion between $A \multimap A$ and its infinite version ${!}(A \multimap A)$, where the duplication occurs. 
 
-In what sense is this proof an avatar of the numeral $2$? The same question made sense in the context of the $\lambda$-calculus. There, we only appreciated the relationship between the term $T$ in \eqref{??} and the numeral $2$ when we saw how $T$ \emph{interacted} with other terms $M$ by forming the function application $(T \, M)$ and then finding a normal form with respect to $\beta$-equivalence. The analogue of function application in linear logic is the cut rule. The analogue of $\beta$-equivalence is an equivalence relation on the set of proofs of any sequent, which we write as $\rho =_{cut} \delta$ and communicate by saying that $\rho$ and $\delta$ are \emph{equivalent under cut-elimination}. The details of this relation will be explained later, but for now let us examine how it gives a ``dynamic'' meaning to the proof $\church{2}_A$. 
+In what sense is this proof an avatar of the numeral $2$? In the context of the $\lambda$-calculus we appreciated the relationship between the term $T$ and the numeral $2$ only after we saw how $T$ interacted with other terms $M$ by forming the function application $(T \, M)$ and then finding a normal form with respect to $\beta$-equivalence in \eqref{eq:beta_reduc_dup}. 
+
+The analogue of function application in linear logic is the cut rule. The analogue of $\beta$-equivalence is an equivalence relation on the set of proofs of any sequent, which we write as $\rho =_{cut} \delta$ and communicate by saying that $\rho$ and $\delta$ are \emph{equivalent under cut-elimination}. We will have more to say about cut-elimination in Section \ref{section:cut_elim}, but for now let us examine how it gives a dynamic meaning to the proof $\church{2}_A$. 
 
 \begin{example}\label{example:cutagainst2} Let $\pi$ be any proof of $A \vdash A$ and consider the proof 
 \begin{center}
@@ -793,7 +813,7 @@ In what sense is this proof an avatar of the numeral $2$? The same question made
 \end{center} 
 We write $\delta \l \rho$ for the cut rule applied with left branch $\rho$ and right branch $\delta$, and $\operatorname{prom}( \pi )$ for the left hand branch of \eqref{cut_against_2_early}, so that the whole proof is denoted $\church{2}_A \l \operatorname{prom}( \pi )$.
 
-Intuitively, the promotion rule ``makes perennial'' the data of the proof $\pi$ and prepares it to be used more than once (that is, in a \emph{nonlinear} way). The cut rule is logically the incarnation of Modus Ponens, and from the point of view of categorical semantics is the linguistic antecedent of composition. In the context of \eqref{cut_against_2_early} it plays the role of ``feeding'' the perennial version of $\pi$ as input to $\church{2}_A$. After our experience with the $\lambda$-term $T$ it is not a surprise that the above proof is equivalent under cut-elimination to
+Intuitively, the promotion rule ``makes perennial'' the data of the proof $\pi$ and prepares it to be used more than once (that is, in a \emph{nonlinear} way). The cut rule is logically the incarnation of Modus Ponens, and from the point of view of categorical semantics is the linguistic antecedent of composition. In the context of \eqref{cut_against_2_early} it plays the role of feeding the perennial version of $\pi$ as input to $\church{2}_A$. After our experience with the $\lambda$-term $T$ it is not a surprise that the above proof is equivalent under cut-elimination to
 \begin{center}
 \begin{tabular}{>{\centering}m{6cm} >{\centering}m{4cm}}
 \AxiomC{$\pi$}
@@ -808,42 +828,43 @@ Intuitively, the promotion rule ``makes perennial'' the data of the proof $\pi$ 
 \def\extraVskip{2pt}
 \RightLabel{\scriptsize cut}
 \BinaryInfC{$A \vdash A$}
+\RightLabel{\scriptsize $\multimap R$}
+\UnaryInfC{$\vdash A \multimap A$}
 \DisplayProof
 &
 
 \tagarray{\label{cut_against_2_early_3}}
 \end{tabular}
 \end{center} 
-which we write as $\pi \l \pi$. 
+which we is essentially the square $\pi \l \pi$.
 \end{example}
 
-With $\pi$ standing for the term $M$ in Section \ref{??}, we see the close analogy between the program $T$ of $\lambda$-calculus and the proof $\church{2}_A$ of linear logic, with the cut \eqref{cut_against_2_early} playing the role of $(T \, M)$ and cut-elimination the role of $\beta$-reduction. This is one aspect of the \emph{Curry-Howard correspondence} which relates programs in the simply-typed $\lambda$-calculus (and its extensions) to proofs in intuitionistic logic (and its extensions) with cut-elimination playing the role of $\beta$-reduction; see \cite{??}.
+With $\pi$ playing the role of the term $M$ in Section \ref{section:lambda_calc}, we see the close analogy between the program $T$ of $\lambda$-calculus and the proof $\church{2}_A$ of linear logic, with the cut \eqref{cut_against_2_early} playing the role of $(T \, M)$ and cut-elimination the role of $\beta$-reduction. This is one aspect of the \emph{Curry-Howard correspondence} \cite[\S 6.5]{selinger} which relates programs in the simply-typed $\lambda$-calculus (and its extensions) to proofs in intuitionistic logic (and its extensions) with cut-elimination playing the role of $\beta$-reduction. We will not go into details here, but there is a chain of embeddings
+\[
+\big\{\textup{Simply-typed $\lambda$-calculus}\big\} \hookrightarrow \big\{\textup{Intuitionistic logic}\big\} \hookrightarrow \big\{\textup{Linear logic}\big\}
+\]
+using which we can translate programs in the simply-typed $\lambda$-calculus into proofs of linear logic; see \cite[\S 5.1, \S 5.3]{girard_llogic} and \cite{lafont,abramsky,benton_etal}.
 
-%As in intuitionistic logic, cut-elimination in linear logic generates an equivalence relation on proofs of a given sequent. This equivalence relation plays a role conceptually analogous to diffeomorphism of bordisms in topological field theory, but is more complicated because of the presence of the exponential modality, as for example the diagrammatic transformations in Section \ref{section:cut_elim} below demonstrate. (TODO - is this our first mention of cut-elimination)%We will have more to say about cut-elimination for linear logic in Section \ref{section:cut_elim} and Section \ref{section:goi}.
+% For example, if $A,B$ denote types in propositional intuitionistic logic, and $A^\circ, B^\circ$ the corresponding types in linear logic, then $(A \Rightarrow B)^\circ := (! A^\circ) \multimap B^\circ$ where for atoms $A$ we declare $A^\circ = A$. There is a corresponding translation of proofs of $\vdash A$ to proofs of $\vdash A^\circ$. The Church numeral $\church{2}_A$ is a $\lambda$-term of type $(A \rightarrow A) \rightarrow (A \rightarrow A)$ which corresponds to a proof in intuitionistic logic of the sequent $\vdash (A \Rightarrow A) \Rightarrow (A \Rightarrow A)$. If $A$ is atomic, the translation of this type to linear logic is $\inta_A' = {!}( {!}A \multimap A ) \multimap ({!}A \multimap A)$. Thus a Church numeral in the $\lambda$-calculus determines a proof of $\vdash \inta_A'$ not $\vdash \inta_A$ under this translation. However, this translation is not necessarily the most useful or economical one because of the over-use of exponentials \cite[\S 5.3]{girard_llogic}. For reasons of clarity we follow standard practice in using the ``linear logic version'' of the Church numeral $\church{2}_A$ in Example \ref{example:first_occur_2} above, rather than the literal translation.
 
 \section{Semantics of linear logic}\label{section:diagrammatics}
 
-As we have already mentioned, on the set of proofs of any sequent $\Gamma \vdash A$ there is an equivalence relation called \emph{cut-elimination}, see Section \ref{??}.
+As we have already mentioned in the previous section, on the set of proofs of any sequent $\Gamma \vdash A$ there is an equivalence relation called \emph{cut-elimination}. As was the case with the set of $\lambda$-terms modulo $\beta$-equivalence, the structure of the set of proofs in linear logic modulo cut-elimination is quite complicated, and one way to understand this structure is to try to model it in simpler mathematical structures, like vector spaces and linear maps. These models are called \emph{semantics} of linear logic.
 
-One way to elaborate on the reason \emph{why} \eqref{cut_against_2_early} is equivalent to \eqref{cut_against_2_early_3} would be to list the rewrite rules that make up the equivalence relation. However we take an alternative approach: in the next section we develop the semantics of linear logic and explain how to reframe the discussion of $\church{2}_A$ in terms of an associated linear map of vector spaces.
+A \emph{categorical semantics} of linear logic \cite{mellies, blue_book} assigns to each formula $A$ an object $\den{A}$ of some category and to each proof of $\Gamma \vdash A$ a morphism $\den{\Gamma} \lto \den{A}$ in such a way that two proofs equivalent under cut-elimination are assigned the same morphism; these objects and morphisms are called \emph{denotations}. The connectives of linear logic become structure on the category of denotations, and compatibility with cut-elimination imposes identities relating these structures to one another.
 
-Return to the structure of collections of proofs
+In its general outlines the kind of structure imposed on the category of denotations is pretty clear from the cut-elimination transformations themselves \cite{??}, but it took some time for various subtleties to be worked out in the literature \cite{??,??,??}. The upshot is that to define a categorical semantics the category of denotations must be a closed symmetric monoidal category equipped with a comonad, which is used to model the exponential modality \cite[\S 7]{mellies}. This is a refinement of the equivalence between simply-typed $\lambda$-calculus and cartesian closed categories due to Lambek and Scott \cite{lambek}. 
 
- Writing $[ A \vdash A ]$ for the set of equivalence classes of proofs of $A \vdash A$ notice how from the proof $\church{2}_A$ we have constructed a \emph{function}, namely 
-\begin{gather*}
-[A \vdash A] \lto [A \vdash A]\,,\\
-[\pi] \mapsto [ \church{2}_A \l \operatorname{prom}( \pi ) ] = [ \pi \l \pi ]\,.
-\end{gather*}
-
-A \emph{categorical semantics} of linear logic \cite{mellies, blue_book} assigns to each type $A$ an object $\den{A}$ of some category and to each proof of $\Gamma \vdash A$ a morphism $\den{\Gamma} \lto \den{A}$ in such a way that two proofs equivalent under cut-elimination are assigned the same morphism; these objects and morphisms are called \emph{denotations}. The connectives of linear logic become structure on the category of denotations, and compatibility with cut-elimination imposes identities relating these structures to one another. 
-
-The upshot is that to define a categorical semantics the category of denotations must be a closed symmetric monoidal category equipped with a comonad, which is used to model the exponential modality \cite[\S 7]{mellies}. This is a refinement of the equivalence between simply-typed $\lambda$-calculus and cartesian closed categories due to Lambek and Scott \cite{lambek}. The first semantics of linear logic were the coherence spaces of Girard \cite[\S 3]{girard_llogic} which are a refined form of Scott's model of the $\lambda$-calculus. Models of full linear logic with negation involve the $\star$-autonomous categories of Barr \cite{barr_auto,barr_acc,barr_autolin} and the extension to include quantifiers involves indexed monoidal categories \cite{seely}.
+\begin{remark} The first semantics of linear logic were the coherence spaces of Girard \cite[\S 3]{girard_llogic} which are a refined form of Scott's model of the $\lambda$-calculus. Models of full linear logic with negation involve the $\star$-autonomous categories of Barr \cite{barr_auto,barr_acc,barr_autolin} and the extension to include quantifiers involves indexed monoidal categories \cite{seely}.
+\end{remark}
 
 \subsection{Denotations of formulas}
 
-In this paper denotations all take place in the category $\cat{V}$ of $k$-vector spaces. Throughout $k$ is an algebraically closed field of characteristic zero. We explain the denotations of types now, and leave the denotation of proofs to the next section. To this end, for a vector space $V$ let ${!} V$ denote the cofree cocommutative coalgebra generated by $V$. We will discuss the explicit form of this coalgebra in the next section; for the moment it is enough to know that it exists and is determined up to unique isomorphism.
+In this paper denotations all take place in the category $\cat{V}$ of $k$-vector spaces where $k$ is an algebraically closed field of characteristic zero. 
 
-\begin{definition}\label{defn:denotation_objects} The \emph{denotation} $\den{A}$ of a type $A$ is defined inductively as follows:
+We explain the denotations of formulas now, and leave the denotation of proofs to the next section. To this end, for a vector space $V$ let ${!} V$ denote the cofree cocommutative coalgebra generated by $V$. There is a universal morphism $d: {!} V \lto V$. We will discuss the explicit form of this coalgebra in the next section; for the moment it is enough to know that it exists and is determined up to unique isomorphism.
+
+\begin{definition}\label{defn:denotation_objects} The \emph{denotation} $\den{A}$ of a formula $A$ is defined inductively as follows:
 \begin{itemize}
 \item The propositional variables $x, y, z, \ldots$ are assigned chosen finite-dimensional vector spaces $\den{x}, \den{y}, \den{z}, \ldots$;
 \item $\den{1} = k$;
@@ -869,7 +890,7 @@ If $\Gamma$ is empty then $\den{\Gamma} = k$.
 %But we are getting ahead of ourselves. The first step is to reformulate the $\lambda$-calculus in terms of classical logic, then we identify the part of the logic that is responsible for this duplication -- called the contraction rule -- and explain how the contraction rule is refined in linear logic in such a way as to lead naturally to the coalgebra ${!} \End_k(V)$.
 %\end{remark}
 
-\begin{example}\label{example:denotation_2}  Let $A$ be a type whose denotation is $V = \den{A}$. Then from \eqref{defn:integers},
+\begin{example}\label{example:denotation_2}  Let $A$ be a formula whose denotation is $V = \den{A}$. Then from \eqref{defn:integers},
 \[
 \den{\inta_A} = \den{ {!}( A \multimap A) \multimap (A \multimap A)} = \Hom_k( {!} \End_k(V), \End_k(V) )\,.
 \]
@@ -877,9 +898,9 @@ If $\Gamma$ is empty then $\den{\Gamma} = k$.
 
 \subsection{Denotations of proofs}
 
-In the previous section we associated to each type $A$ a vector space $\den{A}$. In this section we complete the construction of the vector space semantics of linear logic by assigning to each proof $\pi$ of a sequent $\Gamma \vdash B$ a linear map $\den{\Gamma} \lto \den{B}$. The essential features of this assignment can be seen already in the following simple example:
+In the previous section we associated to each formula $A$ a vector space $\den{A}$. In this section we complete the construction of the vector space semantics of linear logic by assigning to each proof $\pi$ of a sequent $\Gamma \vdash B$ a linear map $\den{\Gamma} \lto \den{B}$. The essential features of this assignment can be seen already in the following simple example:
 
-\begin{example} The denotation of the proof $\church{2}_A$ of $\vdash \inta_A$ will be a morphism
+\begin{example}\label{example:2_denotation_preview} Let $A$ be a formula $V = \den{A}$. The denotation of the proof $\church{2}_A$ of $\vdash \inta_A$ from Example \ref{example:first_occur_2} will be a morphism
 \begin{equation}\label{eq:2_as_comp_0}
 \den{\church{2}_A}: k \lto \den{\inta_A} = \Hom_k( {!} \End_k(V), \End_k(V) )\,,
 \end{equation}
@@ -901,9 +922,9 @@ Then $\den{\church{2}_A}$ maps this element to
 This demonstrates how the coalgebra ${!} \End_k(V)$ may be used to encode nonlinear maps, such as squaring an endomorphism.
 \end{example}
 
-This is almost completely formal: the category of $k$-vector spaces has all the properties of a category of proof denotations described earlier, including the comonad ${!}$ given by taking cofree cocommutative coalgebras, so it is automatic that semantics of intuitionistic linear logic may be constructed within $\cat{V}$. However, to explicitly calculate the denotations of proofs we need formulas for promotion and dereliction which are not automatic: in fact, this paper seems to be the first time they have been written down. This is not as surprising as it might seem: although studying semantics of \emph{linear} logic using vector spaces is an natural thing to do, research has focused on full linear logic with negation. This is more complicated than the intuitionistic case, because types must be interpreted by self-dual objects and this leads to topological vector spaces \cite{barr_auto, barr_acc, blute,blute_scott,girard_coherentbanach,ehrhard, ehrhard_kothe}.  However these more sophisticated models have the disadvantage that it is inconvenient to write down denotations of proofs, which is why for this introduction we stick to the intuitionistic case. See Remark \ref{remark_otherpromotion} for more on the existing literature.
+The category of $k$-vector spaces has all the properties of a category of proof denotations described earlier, including the comonad ${!}$ given by taking cofree cocommutative coalgebras, so it is automatic that semantics of intuitionistic linear logic may be constructed within $\cat{V}$. However, to explicitly calculate the denotations of proofs we need formulas for promotion and dereliction which are not automatic: in fact, this paper might be the first time they have been written down in full generality.\footnote{This is not as surprising as it might seem: although studying semantics of \emph{linear} logic using vector spaces is an natural thing to do, research has focused on full linear logic with negation. This is more complicated than the intuitionistic case, because types must be interpreted by self-dual objects and this leads to topological vector spaces \cite{barr_auto, barr_acc, blute,blute_scott,girard_coherentbanach,ehrhard, ehrhard_kothe}.  However these more sophisticated models have the disadvantage that it is inconvenient to write down denotations of proofs, which is why for this introduction we stick to the intuitionistic case. See Remark \ref{remark_otherpromotion} for more on the existing literature.}
 
-Our assignment of linear maps to proofs will be presented using string diagrams. One style of string diagrams, called \emph{proof-nets}, were introduced by Girard and have been fundamental to linear logic since the beginning of the subject \cite{girard_llogic}. However proof-nets are designed for full linear logic and this does not naturally fit with a semantics involving infinite-dimensional vector spaces. Instead we use a style of diagrams which is standard in category theory, following Joyal and Street \cite{JSGoTCI,JSGoTCII,ladia,khovdia}. Our recommended reference for this approach to proof-nets is Melli\`{e}s \cite{mellies, mellies_dia}.
+Our assignment of linear maps to proofs will be presented using string diagrams. One style of string diagrams, called \emph{proof-nets}, were introduced by Girard and have been fundamental to linear logic since the beginning of the subject \cite{girard_llogic}. However proof-nets are designed for full linear logic and this does not naturally fit with a semantics involving infinite-dimensional vector spaces. Instead we use a style of diagrams which is standard in category theory, following Joyal and Street \cite{JSGoTCI,JSGoTCII,ladia,khovdia}. Our recommended reference for this approach is Melli\`{e}s \cite{mellies, mellies_dia}.
 \\
 
 Let $\cat{V}$ denote the category of $k$-vector spaces (not necessarily finite dimensional). Then $\cat{V}$ is symmetric monoidal and for each object $V$ the functor $V \otimes -$ has a right adjoint
@@ -1136,7 +1157,7 @@ And in particular, the identity element of $\Sym_P(V)$ is denoted by a vacuum ve
 \begin{equation}\label{eq:vacuum}
 \ket{o}_P := 1 \in \Sym_P(V)\,.
 \end{equation}
-We remark that if $\nu = 0$ then $\ket{\nu}_P = 0$ is the zero vector, which is distinct from $\ket{o}_P = 1$. We keep in mind that \eqref{eq:vacuum} denotes the case $s = 0$ of \eqref{eq:ket_notation} and to avoid unwieldy notation we sometimes write $\nu_1 \otimes \cdots \otimes \nu_s \cdot \ket{o}_P$ for $\ket{\nu_1,\ldots,\nu_s}_P$. With this notation the universal map $d: {!} V \lto V$ is defined by
+We remark that if $\nu = 0$ then $\ket{\nu}_P = 0$ is the zero vector, which is distinct from $\ket{o}_P = 1$. To avoid unwieldy notation we sometimes write $\nu_1 \otimes \cdots \otimes \nu_s \cdot \ket{o}_P$ for $\ket{\nu_1,\ldots,\nu_s}_P$. With this notation the universal map $d: {!} V \lto V$ is defined by
 \[
 d \ket{o}_P = P, \quad d\ket{\nu}_P = \nu, \quad d\ket{\nu_1,\ldots,\nu_s}_P = 0 \quad s > 1\,.
 \]
@@ -1184,11 +1205,11 @@ Such liftings arise from promotions with empty premises, e.g. the proof\footnote
 
 \subsection{The vector space semantics}\label{section:vector_space_sem}
 
-Recall from Definition \ref{defn:denotation_objects} the definition of $\den{A}$ for each type $A$.
+Recall from Definition \ref{defn:denotation_objects} the definition of $\den{A}$ for each formula $A$.
 
 \begin{definition}\label{defn:denotation_morphism} The \emph{denotation} $\den{\pi}$ of a proof $\pi$ of $\Gamma \vdash B$ is a linear map $\den{\Gamma} \lto \den{B}$ defined by inductively assigning a string diagram to each proof tree; by the basic results of the diagrammatic calculus \cite{JSGoTCI} this diagram unambiguously denotes a linear map. The inductive construction is described by the second column in \eqref{deduction_rule_ax} -- \eqref{deduction_rule_weak}. 
 
-In each rule we assume a morphism has already been assigned to each of the sequents in the numerator of the deduction rule. These inputs are represented by blue circles in the diagram, which computes the morphism to be assigned to the denominator. To simplify the appearance of diagrams, we adopt the convention that a strand labelled by a type $A$ represents a strand labelled by the denotation $\den{A}$. In particular, a strand labelled with a sequence $\Gamma = A_1,\ldots,A_n$ represents a strand labelled by $\den{A_1} \otimes \cdots \otimes \den{A_n}$.
+In each rule we assume a morphism has already been assigned to each of the sequents in the numerator of the deduction rule. These inputs are represented by blue circles in the diagram, which computes the morphism to be assigned to the denominator. To simplify the appearance of diagrams, we adopt the convention that a strand labelled by a formula $A$ represents a strand labelled by the denotation $\den{A}$. In particular, a strand labelled with a sequence $\Gamma = A_1,\ldots,A_n$ represents a strand labelled by $\den{A_1} \otimes \cdots \otimes \den{A_n}$.
 \end{definition}
 
 Some comments:
@@ -1434,15 +1455,15 @@ The next deduction rule in $\church{2}_A$ is a contraction:
 \tagarray{\label{2_prime}}
 \end{tabular}
 \end{center}
-The denotation of this map is the composition $\phi = \den{\church{2}_A}: {!} \End_k(V) \lto \End_k(V)$ in \eqref{eq:2_as_comp}. We may compute using the above that 
-\begin{equation}\label{eq:church_2_den}
-\phi \ket{o}_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu\mu}_\alpha = \{ \nu, \mu \}\,.
-\end{equation}
-For example
+Let $\phi = \den{\church{2}_A}$ be the linear map ${!} \End_k(V) \lto \End_k(V)$ denoted by this string diagram. Note that this denotation is precisely the composite \eqref{eq:2_as_comp} displayed in Example \ref{example:2_denotation_preview}. We can compute for example the image of $\ket{\nu}_\alpha$ under $\phi$ as follows:
 \begin{gather*}
 \ket{\nu}_\alpha \longmapsto \ket{\nu}_\alpha \otimes \ket{o}_\alpha + \ket{o}_\alpha \otimes \ket{\nu}_\alpha \longmapsto \alpha \circ \nu + \nu \circ \alpha = \{ \nu, \alpha \}\,.
 \end{gather*}
-The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \multimap A)$ to the right side of the sequent, which yields the final diagram:
+Similarly we compute that
+\begin{equation}\label{eq:church_2_den}
+\phi \ket{o}_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu\mu}_\alpha = \{ \nu, \mu \}\,.
+\end{equation}
+The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \multimap A)$ to the right side of the turnstile, which yields the final diagram:
 % TIKZ ----- Church numeral 2
 \begin{center}
 \begin{tabular}{ >{\centering}m{8cm} >{\centering}m{3cm}}
@@ -1486,10 +1507,10 @@ The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \mul
 \end{tabular}
 \end{center}
 % End Church numeral 2
-The denotation of this morphism is the map in \eqref{eq:2_as_comp_0}. The reader might like to compare this style of diagram for $\church{2}_A$ to the corresponding proof-net in \cite[\S 5.3.2]{girard_llogic}. 
+The denotation of this diagram is the same morphism $\phi$. The reader might like to compare this style of diagram for $\church{2}_A$ to the corresponding proof-net in \cite[\S 5.3.2]{girard_llogic}. 
 \end{example}
 
-In Example \ref{example:denotation_2} we sketched how to recover the function $\alpha \mapsto \alpha^2$ from the denotation of the Church numeral $\church{2}_A$, but now we can put this on a firmer footing. The translation of the $\lambda$-calculus into linear logic encourages us to think of a proof $\pi$ of a sequent $! B \vdash C$ as a program whose input of type $B$ may be used multiple times. There is \emph{a priori} no linear map $\den{B} \lto \den{C}$ associated to $\pi$ but there is a function $\den{\pi}_{nl}$ defined on $P \in \den{B}$ by lifting to $! \den{B}$ and then applying $\den{\pi}$:
+In Example \ref{example:2_denotation_preview} we sketched how to recover the function $\alpha \mapsto \alpha^2$ from the denotation of the Church numeral $\church{2}_A$, but now we can put this on a firmer footing. There is \emph{a priori} no linear map $\den{B} \lto \den{C}$ associated to $\pi$ but there is a function $\den{\pi}_{nl}$ ($nl$ standing for \emph{nonlinear}) defined on $P \in \den{B}$ by lifting to $! \den{B}$ and then applying $\den{\pi}$:
 \begin{equation}\label{eq:lifting_vacua}
 \xymatrix@C+2pc{
 k \ar[r]^-{P} \ar@{.>}[dr]_-{\ket{o}_P} & \den{B} & \den{C}\\
@@ -1508,7 +1529,7 @@ The discussion above shows that, with $V = \den{A}$,
 \begin{lemma}\label{lemma:nonlinear_recover} $\den{\church{2}_A}_{nl}: \End_k(V) \lto \End_k(V)$ is the map $\alpha \mapsto \alpha^2$.
 \end{lemma}
 
-This completes our explanation of how to represent the Church numeral $\church{2}_A$ as a linear map (modulo the evasion discussed in Remark \ref{remark_otherpromotion}). From this presentation we see clearly that the non-linearity of the map $\alpha \mapsto \alpha^2$ is concentrated, in fact, not in the duplication step but in the ``promotion'' step \eqref{eq:lifting_vacua} where the input vector $\alpha$ is turned into a vacuum $\ket{o}_\alpha \in {!} \End_k(V)$. The promotion step is non-linear since $\ket{o}_\alpha + \ket{o}_\beta$ is not a morphism of coalgebras and thus cannot be equal to $\ket{o}_{\alpha + \beta}$. After this step, the duplication, dereliction and composition shown in \eqref{eq:2_deals_with_0} are all linear. Finally, when $k = \mathbb{C}$ it is interesting to compare $\den{2}_{nl}$ with the map $\alpha \mapsto \alpha^2$ of smooth manifolds $\End_k(V)$, see Appendix \ref{section:example_lifting}.
+This completes our explanation of how to represent the Church numeral $\church{2}_A$ as a linear map. From this presentation we see clearly that the non-linearity of the map $\alpha \mapsto \alpha^2$ is concentrated in the promotion step \eqref{eq:lifting_vacua} where the input vector $\alpha$ is turned into a vacuum $\ket{o}_\alpha \in {!} \End_k(V)$. The promotion step is non-linear since $\ket{o}_\alpha + \ket{o}_\beta$ is not a morphism of coalgebras and thus cannot be equal to $\ket{o}_{\alpha + \beta}$. After this step, the duplication, dereliction and composition shown in \eqref{eq:2_deals_with_0} are all linear. %Finally, when $k = \mathbb{C}$ it is interesting to compare $\den{2}_{nl}$ with the map $\alpha \mapsto \alpha^2$ of smooth manifolds $\End_k(V)$, see Appendix \ref{section:example_lifting}.
 
 %(see the discussion of tangents in Appendix \ref{section:example_lifting}) 
 
@@ -1770,16 +1791,16 @@ The analogue in linear logic of a normal form in $\lambda$-calculus is
 \begin{definition} A proof is \emph{cut-free} if it contains no occurrences of the cut rule.
 \end{definition}
 
-The first theorem is that the relation $\rightsquigarrow$ is \emph{weakly normalising}, by which we mean:
+The first theorem is that the relation $\rightsquigarrow$ is \emph{weakly normalising}, which means:
 
 \begin{theorem}[Cut-elimination] For each proof $\pi$ in linear logic there is a sequence
 \begin{equation}\label{eq:proof_pi}
-\pi = \pi_0 \rightsquigarrow \pi_1 \rightsquigarrow \cdots \rightsquigarrow \pi_n
+\pi = \pi_0 \rightsquigarrow \pi_1 \rightsquigarrow \cdots \rightsquigarrow \pi_n = \widetilde{\pi}
 \end{equation}
-where $\pi_n$ is cut-free.
+where $\widetilde{\pi}$ is cut-free, and $n$ depends on $\pi$.
 \end{theorem}
 \begin{proof}
-The original proof by Girard is given in the language of proof-nets \cite{girard_llogic} which for various reasons are better suited to the problem. For a proof in the language of sequent calculus see for example \cite[Appendix B]{brauner}. The argument follows Gentzen's proof for cut-elimination in classical logic; see \cite{gentzen} and \cite[Chapter 13]{girard_prooftypes}. 
+The original proof by Girard is given in the language of proof-nets \cite{girard_llogic}. For a proof in the language of sequent calculus see for example \cite[Appendix B]{brauner}. The argument follows Gentzen's proof for cut-elimination in classical logic; see \cite{gentzen} and \cite[Chapter 13]{girard_prooftypes}. 
 \end{proof}
 
 This is the analogue of Gentzen's \emph{Hauptsatz} for ordinary logic, which was mentioned in the introduction. At a high level, the sequence of rewrites \eqref{eq:proof_pi} eliminates the implicitness present in the original proof until the fully explicit, cut-free proof $\pi_n$ is left. In practice there are various kinds of cut-elimination transformations, for example:
@@ -1790,9 +1811,9 @@ This is the analogue of Gentzen's \emph{Hauptsatz} for ordinary logic, which was
 % With some abuse of language (to be discussed in a moment) we will refer below to $\pi_n$ as the \emph{cut-free normalisation} of $\pi$.
 \end{itemize}
 
-\begin{remark} It is possible that multiple rewrite rules apply to a proof, so that there is more than one sequence \eqref{eq:proof_pi} with $\pi$ as its starting point. This raises the question of whether the end result $\pi_n$ is independent of the choices at each stage. This property of a rewrite rule is called \emph{confluence}. Unfortunately in its sequent calculus presentation linear logic is \emph{not} confluent and in particular it is not true that each cut-elimination equivalence class contains a unique cut-free proof.
+\begin{remark} It is possible that multiple rewrite rules apply to a given proof, so that there is more than one sequence \eqref{eq:proof_pi} with $\pi$ as its starting point. This raises the natural questions: does \emph{every} sequence of rewrites starting from $\pi$ terminate with a cut-free proof, and is the end result $\widetilde{\pi}$ independent of all the choices? This property of a rewrite rule is called \emph{strong normalisation}. Unfortunately in its sequent calculus presentation linear logic does \emph{not} satisfy strong normalisation and in particular it is not true that each cut-elimination equivalence class contains a unique cut-free proof.
 
-However it is true that two cut-free proofs in the same equivalence class are ``essentially the same'' in the sense that they are assigned the same proof-net. That is, cut-elimination of proof-nets is confluent, according to \cite[Remark 4.19]{pagani}. The reader is warned that in this direction things quickly become technical!
+However it is true that two cut-free proofs in the same equivalence class are ``essentially the same'' in the sense that they are assigned the same proof-net \cite[Remark 4.19]{pagani}. Indeed cut-elimination of proof-nets satisfies strong normalisation. For first-order linear logic as presented here, this is proven in Girard's original paper \cite{girard_llogic} but for second-order linear logic there are gaps in the proof given there; see \cite{pagani}.
 \end{remark}
 
 \subsection{An extended example}
@@ -2394,20 +2415,20 @@ That is,
 Cut against $\church{n}_{\inta_A}$ this yields the desired numeral $\church{m^n}_A$.
 \end{example}
 
-We begin to see the general pattern: to represent more complicated functions $\mathbb{N} \lto \mathbb{N}$ we need to use more complicated base types $B$ for the integers $\inta_B$ on the left hand side. At the next step, when we try to iterate exponentials, we see that it is hopeless to continue without introducing a way to parametrise over these base types. That is precisely the role of quantifiers in second-order logic.
+We begin to see the general pattern: to represent more complicated functions $\mathbb{N} \lto \mathbb{N}$ we need to use more complicated base types $B$ for the integers $\inta_B$ on the left hand side. At the next step, when we try to iterate exponentials, we see that it is hopeless to continue without introducing a way to parametrise over these base types, and this is the role of quantifiers in second-order logic.
 
-The iteration of the function $n \mapsto 2^n$ yields a tower of exponentials of variable height. More precisely, $T: \mathbb{N} \lto \mathbb{N}$ is defined recursively by $T(0) = 1, T(n+1) = 2^{T(n)}$ so that
-\[
-T(n) = 2^{2^{2^{\iddots^{2}}}}
-\]
-where the total number of occurrences of $2$ on the right hand side is $n$. To represent the function $T$ as a proof in linear logic we need to introduce integer types with iterated subscripts by the recursive definition
+To motivate the extension of linear logic to second-order, consider the iteration of the function $n \mapsto 2^n$ which yields a tower of exponentials of variable height. More precisely, $E: \mathbb{N} \lto \mathbb{N}$ is defined recursively by $E(0) = 1, E(n+1) = 2^{E(n)}$ so that
+\begin{equation}\label{eq:tower_of_exps_E}
+E(n) = 2^{2^{2^{\iddots^{2}}}}
+\end{equation}
+where the total number of occurrences of $2$ on the right hand side is $n$. To represent the function $E$ as a proof in linear logic we need to introduce integer types with iterated subscripts by the recursive definition
 \[
 \inta_A(0) = \inta_A, \qquad \inta_A(r+1) =\inta_{\inta_A(r)}\,.
 \]
-From Example \ref{example:exponentials} we have, for each $r$, the proof $\prf{\mathrm{exp}}_{\inta_A(r),2}$ of $\inta_A(r+1) \vdash \inta_A(r)$. By iteration of the exponential we mean the cut of the following proofs:
+By iteration of the exponential we mean the cut of the following sequence:
 \begin{center}
 \begin{tabular}{ >{\centering}m{3cm} >{\centering}m{2cm} >{\centering}m{3cm} >{\centering}m{3cm} >{\centering}m{2cm}}
-\AxiomC{$\prf{\mathrm{exp}}_{\inta_A(n),2}$}
+\AxiomC{$\prf{\mathrm{exp}}_{\inta_A(n-1),2}$}
 \noLine\UnaryInfC{$\vdots$}
 \def\extraVskip{5pt}
 \noLine\UnaryInfC{$\inta_A(n+1) \vdash \inta_A(n)$}
@@ -2419,7 +2440,7 @@ $\cdots$
 
 &
 
-\AxiomC{$\prf{\mathrm{exp}}_{\inta_{\inta_A},2}$}
+\AxiomC{$\prf{\mathrm{exp}}_{\inta_{A},2}$}
 \noLine\UnaryInfC{$\vdots$}
 \def\extraVskip{5pt}
 \noLine\UnaryInfC{$\inta_{\inta_{\inta_A}} \vdash \inta_{\inta_A}$}
@@ -2427,7 +2448,7 @@ $\cdots$
 
 &
 
-\AxiomC{$\prf{\mathrm{exp}}_{\inta_A,2}$}
+\AxiomC{$\prf{\mathrm{exp}}_{A,2}$}
 \noLine\UnaryInfC{$\vdots$}
 \def\extraVskip{5pt}
 \noLine\UnaryInfC{$\inta_{\inta_A} \vdash \inta_A$}
@@ -2437,9 +2458,7 @@ $\cdots$
 \tagarray{\label{seriesofexponentials}}
 \end{tabular}
 \end{center}
-The result of these cuts is a proof of $\inta_A(n+1) \vdash \inta_A$ which, when cut against $\church{n}_{\inta_A(n)}$, yields a proof which reduces under cut-elimination to $\church{T(n)}_A$.
-
-However this proof is constructed ``by hand'' for each integer $n$. It is clear from the definition of \eqref{seriesofexponentials} that what we are doing in essence is iterating the exponential function, but we cannot express this formally in the language of propositional linear logic because the base type on our integers changes from iteration to iteration. This leads us to second-order linear logic. After defining it, we will return to the problem of encoding towers of exponentials as proofs.
+This yields a proof of $\inta_A(n+1) \vdash \inta_A$ which, when cut against $\church{n}_{\inta_A(n)}$, yields a proof equivalent under cut-elimination to $\church{E(n)}_A$. However this proof is constructed ``by hand'' for each integer $n$. It is clear that what we are doing in essence is iterating the exponential function, but we cannot express this formally in the language of propositional linear logic because the base type on our integers changes from iteration to iteration. To resolve this dilemma we will have to enrich the language by adding quantifiers, after which we will return in Lemma \ref{lemma:hypexp} to the problem of encoding towers of exponentials as proofs.
 
 \begin{definition}[(Second-order linear logic)] The formulas of \emph{second-order linear logic} are defined recursively as follows: any formula of propositional linear logic is a formula, and if $A$ is a formula then so is $\forall x \,.\, A$ for any propositional variable $x$. There are two new deduction rules:
 \begin{center}
@@ -2496,7 +2515,7 @@ to the proof
 \BinaryInfC{$\Gamma, \Delta \vdash C$}
 \DisplayProof
 \qquad
-\tagarray{\label{quantifier_before}}
+\tagarray{\label{quantifier_after}}
 \end{center}
 where $\pi[B/x]$ denotes the result of replacing all occurrences of $x$ in the proof $\pi$ with $B$. In the remainder of this section we provide a taste of just what an \emph{explosion} of possibilities the addition of quantifiers to the language represents. 
 
@@ -2533,12 +2552,14 @@ For each integer $n \ge 0$ we define $\church{n}$ to be the proof
 % Notice that the left introduction rule must precede the right introduction rule, because of the requirement that $x$ not be free on the left hand side in the latter rule.
 \end{example}
 
-\begin{example}[(Hyper-exponentials)] We define $\prf{\mathrm{hypexp}}$ to be the iteration of $\prf{\mathrm{exp}}_2$, in the following sense:
+\begin{example}[(Hyper-exponentials)] We define $\prf{\mathrm{hypexp}}$ to be
 \begin{center}
 \AxiomC{$\prf{\mathrm{exp}}_2$}
 \noLine\UnaryInfC{$\vdots$}
 \def\extraVskip{5pt}
-\noLine\UnaryInfC{$\vdash \inta \multimap \inta$}
+\noLine\UnaryInfC{$\inta \vdash \inta$}
+\RightLabel{\scriptsize $\multimap R$}
+\UnaryInfC{$\vdash \inta \multimap \inta$}
 \RightLabel{\scriptsize prom}
 \UnaryInfC{$\vdash {!}(\inta \multimap \inta)$}
 \def\extraVskip{2pt}
@@ -2560,8 +2581,88 @@ For each integer $n \ge 0$ we define $\church{n}$ to be the proof
 \end{center}
 \end{example}
 
-\begin{lemma} The cut of $\church{n}$ against $\prf{\mathrm{hypexp}}$ reduces to $\church{T(n)}$.
+\begin{lemma}\label{lemma:hypexp} The cut of $\church{n}$ against $\prf{\mathrm{hypexp}}$ reduces to $\church{E(n)}$.
 \end{lemma}
+\begin{proof}
+We sketch how $\prf{\mathrm{hypexp}} \l \church{2}$ reduces to the sequence of cuts in \eqref{seriesofexponentials}, since the argument for general $n$ is similar. The first reduction is of the cut of left and right introduction rules for the quantifier \eqref{quantifier_before} $\rightsquigarrow$ \eqref{quantifier_after} which leaves a cut of $\church{2}_{\inta}$ against the proof \eqref{hyperexp_prooftree} up to its penultimate step. The second reduction is \eqref{eq:cutelim3} $\rightsquigarrow$ \eqref{eq:cutelim4}, i.e. \cite[\S 3.8.2]{mellies}, to
+\begin{center}
+\AxiomC{$\prf{\mathrm{exp}}_2$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\inta \vdash \inta$}
+\RightLabel{\scriptsize $\multimap R$}
+\UnaryInfC{$\vdash \inta \multimap \inta$}
+\RightLabel{\scriptsize prom}
+\UnaryInfC{$\vdash {!}(\inta \multimap \inta)$}
+\def\extraVskip{2pt}
+\AxiomC{$\church{2}_{\inta}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{${!}( \inta \multimap \inta) \vdash \inta \multimap \inta$}
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$\vdash \inta \multimap \inta$}
+\AxiomC{$\church{1}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\vdash \inta$}
+\AxiomC{}
+\UnaryInfC{$\inta \vdash \inta$}
+\RightLabel{\scriptsize$\multimap L$}
+\BinaryInfC{$\inta \multimap \inta \vdash \inta$}
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$\vdash \inta$}
+\DisplayProof
+\quad
+\tagarray{\label{hyperexp_prooftree_hyp}}
+\end{center}
+The left hand branch of this proof is familiar from Example \ref{example:cutagainst2}, so we know it reduces to the square of $\prf{\mathrm{exp}}_2$ which we can write as
+\begin{center}
+\AxiomC{$\prf{\mathrm{exp}}_{y,2}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\inta_{\inta_y} \vdash \inta_y$}
+\RightLabel{\scriptsize$\forall L$}
+\UnaryInfC{$\inta \vdash \inta_y$}
+\RightLabel{\scriptsize$\forall R$}
+\UnaryInfC{$\inta \vdash \inta$}
+\def\extraVskip{2pt}
+\AxiomC{$\prf{\mathrm{exp}}_{x,2}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\inta_{\inta_x} \vdash \inta_x$}
+\RightLabel{\scriptsize$\forall L$}
+\UnaryInfC{$\inta \vdash \inta_x$}
+\RightLabel{\scriptsize$\forall R$}
+\UnaryInfC{$\inta \vdash \inta$}
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$\inta \vdash \inta$}
+\DisplayProof
+\quad
+\tagarray{\label{hyperexp_quant}}
+\end{center}
+followed by a right introduction rule to get a proof of $\vdash \inta \multimap \inta$. There is a cut-elimination transformation that allows us to commute the cut past the right introduction rule in the right branch. At that point the right introduction rule (in the left branch) is cut against the left introduction rule (in the right branch) and the rewrite \eqref{quantifier_before} $\rightsquigarrow$ \eqref{quantifier_after} transforms this to a substitution of $y = \inta_x$ in the left branch:
+\begin{center}
+\AxiomC{$\prf{\mathrm{exp}}_{\inta_x,2}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\inta_{\inta_{\inta_x}} \vdash \inta_{\inta_x}$}
+\RightLabel{\scriptsize$\forall L$}
+\UnaryInfC{$\inta \vdash \inta_{\inta_x}$}
+\def\extraVskip{2pt}
+\AxiomC{$\prf{\mathrm{exp}}_{x,2}$}
+\noLine\UnaryInfC{$\vdots$}
+\def\extraVskip{5pt}
+\noLine\UnaryInfC{$\inta_{\inta_x} \vdash \inta_x$}
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$\inta \vdash \inta_x$}
+\RightLabel{\scriptsize$\forall R$}
+\UnaryInfC{$\inta \vdash \inta$}
+\DisplayProof
+\quad
+\tagarray{\label{hyperexp_quant2}}
+\end{center}
+This is enough to show that the proof $\prf{\mathrm{hypexp}} \l \church{2}$ reduces to the first two cuts in \eqref{seriesofexponentials}.
+\end{proof}
 
 Once we have added quantifiers, the expressive power of the language is immense. We can for example easily iterate hyper-exponentials to obtain a tower of exponentials whose height is itself a tower of exponentials, and by iterating at the type $\inta \multimap \inta$ obtain monsters like the Ackermann function \cite[\S 6.D]{girard_blindspot}.
 
@@ -2570,7 +2671,7 @@ Once we have added quantifiers, the expressive power of the language is immense.
 
 \appendix
 
-\section{Example of cut-elimination}
+\section{Example of cut-elimination}\label{section:appendix_cut_elim}
 
 We examine the beginning of the cut-elimination process applied to the proof \eqref{cut_mult_2}. Our reference for cut-elimination is Melli\`{e}s \cite[\S 3.3]{mellies}. Throughout a formula $A$ is fixed and we write $E = A \multimap A$ so that $\inta_A = {!}E \multimap E$. We encourage the reader to put the following series of proof trees side-by-side with the evolving diagrams in the above to see the correspondence between cut-elimination and diagram manipulation.
 
@@ -2819,12 +2920,6 @@ Z: M_n(\mathbb{C}) \lto M_n(\mathbb{C}), \qquad Z(\alpha) = \alpha^2\,.
 \]
 The tangent map of the smooth map of manifolds $Z$ at $\alpha$ is $(Z_*)_\alpha( \nu ) = \{ \nu, \alpha \}$. When $\alpha$ is the denotation of some proof $\pi$ of $\vdash A \multimap A$ this agrees with the tangent map assigned in \eqref{eq:tangent_map_logic} to the proof $\church{2}_A$ at $\pi$, using \eqref{eq:church_2_den}.
 \end{example}
-
-\section{Translation}\label{remark:embedding_intuit}
-
-We have already mentioned the equivalence of the simply-typed $\lambda$-calculus and propositional intuitionistic logic under the Curry-Howard isomorphism \cite[\S 6.5]{selinger} (TODO no we haven't). There is an embedding of propositional intuitionistic logic into propositional intuitionistic \emph{linear} logic \cite[\S 5.1]{girard_llogic} making use of the additive connectives of linear logic which we have omitted in the above. This means that every program in the simply-typed $\lambda$-calculus may be assigned a proof in linear logic (with additives) in such a way that $\beta$-reduction in the $\lambda$-calculus corresponds to cut-elimination in linear logic. For more on linear logic proofs as computer programs, see \cite{lafont,abramsky,benton_etal}.
-
-For example, if $A,B$ denote types in propositional intuitionistic logic, and $A^\circ, B^\circ$ the corresponding types in linear logic, then $(A \Rightarrow B)^\circ := (! A^\circ) \multimap B^\circ$ where for atoms $A$ we declare $A^\circ = A$. There is a corresponding translation of proofs of $\vdash A$ to proofs of $\vdash A^\circ$. The Church numeral $\church{2}_A$ is a $\lambda$-term of type $(A \rightarrow A) \rightarrow (A \rightarrow A)$ which corresponds to a proof in intuitionistic logic of the sequent $\vdash (A \Rightarrow A) \Rightarrow (A \Rightarrow A)$. If $A$ is atomic, the translation of this type to linear logic is $\inta_A' = {!}( {!}A \multimap A ) \multimap ({!}A \multimap A)$. Thus a Church numeral in the $\lambda$-calculus determines a proof of $\vdash \inta_A'$ not $\vdash \inta_A$ under this translation. However, this translation is not necessarily the most useful or economical one because of the over-use of exponentials \cite[\S 5.3]{girard_llogic}. For reasons of clarity we follow standard practice in using the ``linear logic version'' of the Church numeral $\church{2}_A$ in Example \ref{example:first_occur_2} above, rather than the literal translation.
 
 \bibliographystyle{amsalpha}
 \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}

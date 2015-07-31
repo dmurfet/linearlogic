@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.21)  30 JUL 2015 13:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.21)  31 JUL 2015 12:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -790,11 +790,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \c@theorem=\count149
 
-(./linearlogic.aux
-
-LaTeX Warning: Label `quantifier_before' multiply defined.
-
-)
+(./linearlogic.aux)
 \openout1 = `linearlogic.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
@@ -813,7 +809,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
 LaTeX Font Info:    ... okay on input line 116.
 LaTeX Font Info:    Try loading font information for U+stmry on input line 116.
 
- (/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Try loading font information for U+msa on input line 116.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -889,17 +886,12 @@ LaTeX Warning: Citation `??' on page 1 undefined on input line 156.
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Reference `section:logic' on page 2 undefined on input line 165.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
@@ -919,100 +911,102 @@ Normal \dimen register pool exhausted, switching to extended pool.
 \myScoreEnd3=\dimen263
 
 
-LaTeX Warning: Citation `??' on page 3 undefined on input line 213.
+LaTeX Warning: Citation `??' on page 3 undefined on input line 216.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
 
  []
 
 [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 296.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 291.
+(hyperref)                removing `\lambda' on input line 296.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 296.
 
 [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 309.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 314.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 309.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 314.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 309.
- [5] [6]
-
-LaTeX Warning: Reference `??' on page 7 undefined on input line 364.
-
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 314.
+ [5]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 368.
+d on input line 337.
 
-[7] [8]
-Overfull \hbox (7.20468pt too wide) in paragraph at lines 569--570
+[6] [7] [8]
+Overfull \hbox (25.06563pt too wide) in paragraph at lines 582--583
  []|[]| 
  []
 
-[9] [10]
-
-LaTeX Warning: Reference `??' on page 11 undefined on input line 767.
-
-[11]
-Overfull \hbox (47.2324pt too wide) in paragraph at lines 788--789
+[9]
+Overfull \hbox (6.93896pt too wide) in paragraph at lines 664--665
  []|[]| 
  []
 
+[10] [11]
+Overfull \hbox (47.2324pt too wide) in paragraph at lines 808--809
+ []|[]| 
+ []
 
-LaTeX Warning: Reference `??' on page 12 undefined on input line 820.
+[12]
+
+LaTeX Warning: Citation `??' on page 13 undefined on input line 856.
 
 
-LaTeX Warning: Citation `??' on page 12 undefined on input line 820.
+LaTeX Warning: Citation `??' on page 13 undefined on input line 856.
 
 
-LaTeX Warning: Reference `??' on page 12 undefined on input line 826.
+LaTeX Warning: Citation `??' on page 13 undefined on input line 856.
 
-[12] [13] <xymatrix 4x1 150> [14]
-Underfull \hbox (badness 10000) in paragraph at lines 906--908
+
+LaTeX Warning: Citation `??' on page 13 undefined on input line 856.
+
+[13] <xymatrix 4x1 150>
+Underfull \hbox (badness 10000) in paragraph at lines 927--929
 
  []
 
-[15] <xymatrix 2x1 100> [16] <xymatrix 2x2 150> <xymatrix 3x1 92> [17] [18]
-<xymatrix 2x2 150> [19]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1215--1236
+[14] [15] <xymatrix 2x1 100> [16] <xymatrix 2x2 150> <xymatrix 3x1 92> [17]
+[18] <xymatrix 2x2 150> [19]
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1236--1257
  [] 
  []
 
 [20]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1239--1269
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1260--1290
  [] 
  []
 
 
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1273--1316
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1294--1337
  [] 
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1337--1338
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1358--1359
  []|[]| 
  []
 
 
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1368--1369
+Overfull \hbox (1.57472pt too wide) in paragraph at lines 1389--1390
  []|[][]$\OT1/cmr/m/n/12 (5\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 16)$[] 
  []
 
 
-Overfull \hbox (2.11462pt too wide) in paragraph at lines 1372--1373
+Overfull \hbox (2.11462pt too wide) in paragraph at lines 1393--1394
 \OT1/cmr/m/n/12 The map $[] [][](\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) \OMS/cmsy/
 m/n/12 
  [] [][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) [][]\OMS/cmsy/m/n/
@@ -1022,93 +1016,90 @@ m/n/12
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1401--1402
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1422--1423
  []|[]| 
  []
 
 
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1434--1435
+Overfull \hbox (1.57472pt too wide) in paragraph at lines 1455--1456
  []|[][]$\OT1/cmr/m/n/12 (5\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 17)$[]| 
  []
 
 [21] <xymatrix 3x2 198> [22] [23]
-Overfull \hbox (4.5164pt too wide) in paragraph at lines 1624--1625
+Overfull \hbox (4.5164pt too wide) in paragraph at lines 1645--1646
  []|[]| 
  []
 
 [24] [25] [26]
-Overfull \hbox (1.39024pt too wide) in paragraph at lines 1947--1947
+Overfull \hbox (1.39024pt too wide) in paragraph at lines 1968--1968
 []|[]| 
  []
 
 
-Overfull \hbox (0.60289pt too wide) in paragraph at lines 1947--1947
+Overfull \hbox (0.60289pt too wide) in paragraph at lines 1968--1968
 []|\OT1/cmr/m/n/12 =| 
  []
 
 
-Overfull \hbox (0.60289pt too wide) in paragraph at lines 2014--2014
+Overfull \hbox (0.60289pt too wide) in paragraph at lines 2035--2035
 []|\OT1/cmr/m/n/12 =| 
  []
 
 
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 2115--2116
+Overfull \hbox (1.57472pt too wide) in paragraph at lines 2136--2137
 []|[][]$\OT1/cmr/m/n/12 (6\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 10)$[] 
  []
 
 [27]
-Overfull \hbox (7.26518pt too wide) in paragraph at lines 2122--2122
+Overfull \hbox (7.26518pt too wide) in paragraph at lines 2143--2143
 []|[]| 
  []
 
 
-LaTeX Warning: Citation `??' on page 28 undefined on input line 2283.
+LaTeX Warning: Citation `??' on page 28 undefined on input line 2304.
 
 
-LaTeX Warning: Citation `??' on page 28 undefined on input line 2283.
+LaTeX Warning: Citation `??' on page 28 undefined on input line 2304.
 
 [28] [29] [30]
-Overfull \hbox (29.27736pt too wide) in paragraph at lines 2414--2415
+Overfull \hbox (29.27736pt too wide) in paragraph at lines 2435--2436
  []|[] 
  []
 
 
-Overfull \hbox (9.89996pt too wide) in paragraph at lines 2426--2427
+Overfull \hbox (9.89996pt too wide) in paragraph at lines 2447--2448
  []|[] 
  []
 
-[31] [32] [33] [34] <xymatrix 2x2 194> <xymatrix 3x1 102> [35] [36] [37]
+[31] [32] [33] [34] [35] <xymatrix 2x2 194> <xymatrix 3x1 102> [36] [37]
 [38] [39] [40]
-LaTeX Font Info:    Try loading font information for U+euf on input line 3010.
+LaTeX Font Info:    Try loading font information for U+euf on input line 3105.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 [41] [42]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3085.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3085.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3180.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3180.
  (./linearlogic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3085.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3085.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3180.
 
 Package rerunfilecheck Info: File `linearlogic.out' has not changed.
-(rerunfilecheck)             Checksum: A7B2CCF3D502C0513FF8B65B799ED519;861.
+(rerunfilecheck)             Checksum: 7E9BEF7B1671098F83D60DB1BD587B54;813.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3085.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3180.
  ) 
 Here is how much of TeX's memory you used:
- 20960 strings out of 493089
- 368866 string characters out of 6134842
- 497476 words of memory out of 5000000
- 23775 multiletter control sequences out of 15000+600000
+ 20993 strings out of 493089
+ 369459 string characters out of 6134842
+ 498151 words of memory out of 5000000
+ 23804 multiletter control sequences out of 15000+600000
  25676 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,54p,3258b,928s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,15n,54p,3258b,926s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
@@ -1142,10 +1133,10 @@ dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2015/texmf-dist/
 fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2015/texmf-dist/fonts
 /type1/public/xypic/xycmbt12.pfb>
-Output written on linearlogic.pdf (42 pages, 483492 bytes).
+Output written on linearlogic.pdf (42 pages, 482653 bytes).
 PDF statistics:
- 856 PDF objects out of 1000 (max. 8388607)
- 771 compressed objects within 8 object streams
- 253 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 869 PDF objects out of 1000 (max. 8388607)
+ 784 compressed objects within 8 object streams
+ 257 named destinations out of 1000 (max. 500000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
