@@ -141,18 +141,80 @@
 
 \section{Introduction}
 
-In this paper we show that there is a natural connection between moduli spaces and logic, using the example of Landau-Ginzburg models. The bicategory of Landau-Ginzburg models $\LG$ has as objects isolated hypersurface singularities, and as $1$-morphisms matrix factorisations of differences of potentials. In \cite{??} this bicategory was studied in connection with topological field theory with defects and shown to have various good properties, and in \cite{??} it was shown how to make composition in this bicategory constructive. In this paper we extend this work by adding \emph{moduli spaces} of matrix factorisations, and showing how the resulting bicategory hosts a model (called a semantics) of linear logic.
+The bicategory of Landau-Ginzburg models $\LG$ has as objects isolated hypersurface singularities, and as $1$-morphisms matrix factorisations of differences of potentials. In \cite{??} this bicategory was studied in connection with topological field theory with defects and shown to have various good properties, and in \cite{??} it was shown how to make composition in this bicategory constructive. In this paper we extend this work by adding \emph{moduli spaces} of matrix factorisations, and showing how the resulting bicategory hosts a model (called a semantics) of linear logic.
+
+\section{Matrix factorisations}
 
 \begin{itemize}
-\item Landau-Ginzburg models
-\item Algorithmically computable
-\item Example of a self-composition of rank $1$ endo-MFs. This includes $P_S$'s so is already plenty complicated.
-\item Linear logic
-\item Semantics of linear logic
-\item Moduli spaces, simple example
-\item Bundle over moduli space of self-compositions
-\item This is the denotation of the proof $2$. 
-\item Things get complicated: $\inta_{\inta_x}$
+\item Definition
+\item Basic examples $y^d - x^d$ and morphisms
+\item Bicategorical structure: fusion
+\item The cut system
+\item Denotations $\den{\bold{x}} = (k[x], W(x))$ in multiplicative fragment
+\item Define indexed objects
+\end{itemize}
+
+\section{Moduli spaces}
+
+\begin{itemize}
+\item Simplest kind of moduli space over poly ring, universal property
+\item Example $y^d - x^d$
+\item Moduli of MFs with null-homotopies
+\item Moduli of MFs with Clifford actions and homotopies
+\item Denotation $\den{! A}$ as an indexed object, $A$ multiplicative
+\end{itemize}
+
+\subsection{Bundles on moduli space}
+
+\begin{itemize}
+\item Universal MF
+\item Bundles on moduli spaces $\Hom(X,Y)$
+\item The denotation of $2$, a MF on $\mathscr{M} \times \mathbb{A}^n$
+\end{itemize}
+
+\subsection{Full moduli space}
+
+\begin{itemize}
+\item Moduli of MFs over non-affine spaces
+\item Full definition: over f.g. algebra, with homotopies, with Clifford action
+\end{itemize}
+
+\section{Moduli potentials}
+
+\begin{itemize}
+\item Definition of moduli potential
+\item Example of $\den{\inta_A}$
+\item Definition of kernels
+\item Examples of kernels
+\item Moduli of kernels
+\item Denotation $\den{A}$, $A$ an arbitrary formula
+\item Example of $\den{!\inta_A}$
+\end{itemize}
+
+\section{Promotion}
+
+\begin{itemize}
+\item Spacelike moduli potentials
+\item Define lifting
+\item Theorem: lifting vs dereliction
+\end{itemize}
+
+\section{Landau-Ginzburg semantics}
+
+\begin{itemize}
+\item Bicategories of indexed objects
+\item $2$-morphisms of kernels
+\item Lifting as something involving indices
+\item Definition of denotations of proofs
+\item Assignment of $2$-morphisms to cut-elimination steps
+\item Theorem: it works
+\end{itemize}
+
+\section{Examples}
+
+\begin{itemize}
+\item The proof $2$ for $(k[x],x^N)$
+\item The proof $2$ for space-like thing, as in cutsys53.
 \end{itemize}
 
 %The abstract syntax of a computer program, written in a high level language like Java or Haskell, is executed on a physical machine after being translated to commands for the operation of the hardware (e.g. moving a memory word between registers). This \emph{operational semantics} is too ad-hoc and tied to a particular machine to allow for the easy recognition of the mathematical properties of programs, and this is the impetus for the study of intermediate \emph{denotational semantics} where the structure of a program is faithfully reflected in some other mathematical structure. 
