@@ -4,7 +4,7 @@
 \BOOKMARK [1][-]{section.4}{Linear logic}{}% 4
 \BOOKMARK [1][-]{section.5}{Semantics of linear logic}{}% 5
 \BOOKMARK [2][-]{subsection.5.1}{Denotations of formulas}{section.5}% 6
-\BOOKMARK [2][-]{subsection.5.2}{Background on string diagrams}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Background on string diagrams and coalgebras}{section.5}% 7
 \BOOKMARK [2][-]{subsection.5.3}{The vector space semantics}{section.5}% 8
 \BOOKMARK [1][-]{section.6}{Cut-elimination}{}% 9
 \BOOKMARK [2][-]{subsection.6.1}{An extended example}{section.6}% 10
