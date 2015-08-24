@@ -215,7 +215,7 @@ This construction is formal, in the sense that it does not depend on the nature 
 \UnaryInfC{$A \multimap B, B \multimap C \vdash A \multimap C$}
 \end{mathprooftree}
 \end{equation}
-This syntactical object is called a \emph{proof}. Here $A,B,C$ are formal variables that we can think of as standing for unknown objects of $\cat{C}$ (or in fact any symmetric closed monoidal category) and $\multimap$ is a connective called linear implication. The horizontal lines stand for deduction rules, which are ``fractions'' with propositions in their numerator and denominator. If we choose to specialise the variables of the proof to particular objects $a,b,c$ the proof acquires a ``shadow'' or interpretation in $\cat{C}$, namely, the internal composition \eqref{eq:comp_map_intro}. 
+This syntactical object is called a \emph{proof}. Here $A,B,C$ are formal variables that we can think of as standing for unknown objects of $\cat{C}$ (or in fact any symmetric closed monoidal category) and $\multimap$ is a connective called linear implication. The horizontal lines stand for deduction rules, which are ``fractions'' with propositions in their numerator and denominator. If we choose to specialise the variables of the proof to particular objects $a,b,c$ the proof acquires a shadow or interpretation in $\cat{C}$, namely, the internal composition \eqref{eq:comp_map_intro}. 
 
 We will formally define linear logic proofs in Section \ref{section:intro_ll} and the method by which their interpretations are defined in Section \ref{section:diagrammatics}, but even without having seen any of the definitions it should seem plausible that the proof formalises the construction in \eqref{eq:construct_comp_catt}. For example the deduction rule $\multimap L$ corresponds to precomposition with an evaluation map, and $\multimap R$ to the use of adjunction. This sketch indicates how linear logic provides algorithms for the construction of canonical maps in symmetric closed monoidal categories. %Moreover, logic also dictates the \emph{relations} between canonical maps constructed in this way, which is the reason why logic often arises in connection with coherence questions.
 \\
@@ -782,7 +782,7 @@ In all deduction rules, the sets $\Gamma$ and $\Delta$ may be empty and, in part
 \qquad
 \tagarray{\label{church_2_prooftree}}
 \end{center}
-In what follows we will also write $\church{2}_A$ for the proof of ${!}( A \multimap A ) \vdash A \multimap A$ obtained by reading the above proof up to the penultimate line. For each integer $n \ge 0$ there is a proof $\church{n}_A$ of $\inta_A$ constructed along similar lines, see \cite[\S 5.3.2]{girard_llogic} and \cite[\S 3.1]{danos}.
+We also write $\church{2}_A$ for the proof of ${!}( A \multimap A ) \vdash A \multimap A$ obtained by reading the above proof up to the penultimate line. For each integer $n \ge 0$ there is a proof $\church{n}_A$ of $\inta_A$ constructed along similar lines, see \cite[\S 5.3.2]{girard_llogic} and \cite[\S 3.1]{danos}.
 \end{example}
 %  Although the proof obviously has a structure similar to \eqref{church_2_prooftree_classic} notice that there is a conversion between $A \multimap A$ and its infinite version ${!}(A \multimap A)$, where the duplication occurs. 
 
@@ -1564,7 +1564,7 @@ One can generate simple variants on the vector space semantics by looking at com
 \section{Cut-elimination}\label{section:cut_elim}
 %The formulas and proofs, to borrow an analogy from \cite[\S III]{girard_towards}, play within linear logic a role analogous to that of statics within classical mechanics. 
 
-The dynamical part of linear logic is a rewrite rule on proofs called \emph{cut-elimination}, which defines the way that proofs interact and is the analogue in linear logic of $\beta$-reduction in the $\lambda$-calculus. Collectively these interactions give the connectives their meaning. The full set of rewrite rules is given in \cite[Section 3]{mellies} and in the alternative language of proof-nets in \cite[\S 4]{girard_llogic}, \cite[p.18]{pagani}. We will not reproduce the full list here because it takes up several pages and there are some subtle cases, but still we do not wish to leave the reader with the impression that these rules are mysterious: the key rules have a clear conceptual content, which we elucidate in this section by presenting a worked example involving our favourite proof $\church{2}_A$ and the string diagram transformations associated to the rewrites.
+The dynamical part of linear logic is a rewrite rule on proofs called \emph{cut-elimination}, which defines the way that proofs interact and is the analogue in linear logic of $\beta$-reduction in the $\lambda$-calculus. Collectively these interactions give the connectives their meaning. The full set of rewrite rules is given in \cite[Section 3]{mellies} and in the alternative language of proof-nets in \cite[\S 4]{girard_llogic}, \cite[p.18]{pagani}. We will not reproduce the full list here because it takes up several pages and there are some subtle cases. That being said, we do not wish to leave the reader with the impression that these rules are mysterious: the key rules have a clear conceptual content, which we elucidate in this section by presenting a worked example involving our favourite proof $\church{2}_A$ and the string diagram transformations associated to the rewrites.
 
 \begin{definition} Let $\Gamma \vdash A$ be a sequent of linear logic and $\cat{P}$ the set of proofs. There is a binary relation $\rightsquigarrow$ on $\cat{P}$ defined by saying that $\pi \rightsquigarrow \rho$ if $\rho$ is an immediate reduction of $\pi$ by one of the rewrite rules listed in \cite[Section 3]{mellies}. These rewrite rules are sometimes referred to as \emph{cut-elimination transformations}.
 
@@ -2260,12 +2260,12 @@ This last diagram is the denotation of $\church{4}_A$, so we conclude that (at l
 \section{Second-order linear logic}\label{section:second}
 
 A measure of the strength or expressiveness of a logic is the class of functions $\mathbb{N} \lto \mathbb{N}$ that can be encoded as proofs. In first-order intuitionistic linear logic $\ILL$ we have already seen how to encode multiplication by an integer as a proof (Definition \ref{definition:mult_m}) and addition will be addressed below (Example \ref{example:addition}) so we deduce that for any formula $A$, any polynomial function $f: \mathbb{N} \lto \mathbb{N}$ may be encoded as a proof of
-\[
+\begin{equation}\label{eq:intatointa}
 \inta_A \vdash \inta_A\,.
-\]
-More precisely, for any polynomial function $f$ there exists a proof $F$ of the above sequent with the property that for any integer $n \ge 0$, the cut of $F$ against $\church{n}_A$ reduces under cut-elimination to $\underline{f(n)}_A$. This is close to being a complete list of the functions $f$ that can be encoded as proofs \cite{schwicht}, which comes as a bit of a disappointment. However, the good news is that more expressive power can be obtained if we allow ourselves to use proofs of $\inta_B \vdash \inta_A$ where $B$ is somehow constructed from $A$. For example, we will see below how to encode exponentials using $B = \inta_A$. 
+\end{equation}
+More precisely, for any polynomial function $f$ there exists a proof $F$ of the above sequent with the property that for any integer $n \ge 0$, the cut of $F$ against $\church{n}_A$ reduces under cut-elimination to $\underline{f(n)}_A$. This is close to being a complete list of the functions $f$ that can be encoded as proofs of the sequent \eqref{eq:intatointa}, which comes as a bit of a disappointment~\cite{schwicht}. However, the good news is that more expressive power can be obtained if we allow ourselves to use proofs of $\inta_B \vdash \inta_A$ where $B$ is somehow constructed from $A$. For example, we will see below how to encode exponentials using $B = \inta_A$. 
 
-A very expressive system can be obtained by allowing the base type $B$ to be computed from $A$ at ``run time'', that is, during cut-elimination. This is achieved by adding quantifiers to the language of $\ILL$, and the resulting logic is called \emph{second-order intuitionistic linear logic} $\ILL_2$. One indication of the expressiveness of this extension is that System F \cite[\S 11]{girard_prooftypes}, otherwise known as the polymorphic $\lambda$-calculus, embeds into it \cite[\S 5.2]{girard_llogic}. The polymorphic $\lambda$-calculus is widely used in practice, and for example the programming language Haskell compiles internally to an extension of System F. 
+A very expressive system can be obtained by allowing the base type $B$ to be computed from $A$ at ``run time'', that is, during cut-elimination. This is achieved by adding quantifiers to the language of $\ILL$, and the resulting logic is called \emph{second-order intuitionistic linear logic} $\ILL_2$. One indication of the expressiveness of this extension is that System F \cite[\S 11]{girard_prooftypes} otherwise known as the polymorphic $\lambda$-calculus, embeds into $\ILL_2$ \cite[\S 5.2]{girard_llogic}. These systems have a growing influence on practical programming languages: for example the language Haskell compiles internally to an extension of System F. 
 \\
 
 % Perhaps one of the best reasons to care about second-order linear logic is that it makes possible a principled and very exciting perspective on computational complexity \cite{??} which ought to have interesting interactions with algebra and other parts of mathematics.
@@ -3134,8 +3134,8 @@ B.~Valiron and S.~Zdancewic, \textsl{Finite vector spaces as model of simply-typ
 \bibitem{quillen}
 D.~Quillen, \textsl{Rational homotopy theory}, The Annals of Mathematics, Second Series, Vol. 90, No. 2, 205--295, 1969.
 
-\bibitem{univalent}
-The Univalent Foundations Program, \textsl{Homotopy {T}ype {T}heory: {U}nivalent {F}oundations of {M}athematics}, Institute for Advanced Study (Princeton), 2013.
+%\bibitem{univalent}
+%The Univalent Foundations Program, \textsl{Homotopy {T}ype {T}heory: {U}nivalent {F}oundations of {M}athematics}, Institute for Advanced Study (Princeton), 2013.
 
 %\bibitem{Yoshino90}
 %Y.~Yoshino, \emph{Cohen-{M}acaulay modules over {C}ohen-{M}acaulay rings},
