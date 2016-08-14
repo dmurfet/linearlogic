@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.21)  24 AUG 2015 09:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.21)  15 AUG 2016 07:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -800,40 +800,40 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./linearlogic.aux)
 \openout1 = `linearlogic.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Try loading font information for U+stmry on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 123.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Try loading font information for U+msa on input line 122.
+LaTeX Font Info:    Try loading font information for U+msa on input line 123.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 122.
+LaTeX Font Info:    Try loading font information for U+msb on input line 123.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 122.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 123.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Package xypdf Info: Line width: 0.47998pt on input line 122.
+Package xypdf Info: Line width: 0.47998pt on input line 123.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -866,7 +866,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring ON on input line 122.
+Package hyperref Info: Link coloring ON on input line 123.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -876,9 +876,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count157
 )
-LaTeX Info: Redefining \ref on input line 122.
-LaTeX Info: Redefining \pageref on input line 122.
-LaTeX Info: Redefining \nameref on input line 122.
+LaTeX Info: Redefining \ref on input line 123.
+LaTeX Info: Redefining \pageref on input line 123.
+LaTeX Info: Redefining \nameref on input line 123.
 
 (./linearlogic.out) (./linearlogic.out)
 \@outlinefile=\write5
@@ -891,21 +891,21 @@ LaTeX Info: Redefining \nameref on input line 122.
 \openout6 = `linearlogic.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 172.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 173.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 173.
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
 
  []
 
@@ -923,110 +923,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--177
 \myCenter3=\dimen264
 \myScoreEnd3=\dimen265
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--222
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 303.
+(hyperref)                removing `math shift' on input line 304.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 303.
+(hyperref)                removing `\lambda' on input line 304.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 303.
+(hyperref)                removing `math shift' on input line 304.
 
 [5]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 321.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 322.
  [6]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 382.
+d on input line 383.
 
 [7] [8]
-Overfull \hbox (25.06563pt too wide) in paragraph at lines 586--587
+Overfull \hbox (25.06563pt too wide) in paragraph at lines 587--588
  []|[]| 
  []
 
 [9]
-Overfull \hbox (6.93896pt too wide) in paragraph at lines 668--669
+Overfull \hbox (6.93896pt too wide) in paragraph at lines 669--670
  []|[]| 
  []
 
 [10] [11] [12] [13] <xymatrix 4x1 150> [14] [15] <xymatrix 2x1 100> [16]
 <xymatrix 2x2 150> <xymatrix 3x1 92> [17] [18] <xymatrix 2x2 150> [19] [20]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1229--1250
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1230--1251
  [] 
  []
 
 
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1253--1283
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1254--1284
  [] 
  []
 
 
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1287--1330
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1288--1331
  [] 
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1351--1352
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1352--1353
  []|[]| 
- []
-
-
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1382--1383
- []|[][]$\OT1/cmr/m/n/12 (5\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 16)$[] 
- []
-
-
-Overfull \hbox (2.11462pt too wide) in paragraph at lines 1386--1387
-\OT1/cmr/m/n/12 The map $[] [][](\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) \OMS/cmsy/
-m/n/12 
- [] [][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 ) [][]\OMS/cmsy/m/n/
-12 ! [][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 )$ in [] is zero on
- $[]\OML/cmm/m/it/12 ^^W[]; [] ; ^^W[][][] \OMS/cmsy/m/n/12 
- []\OML/cmm/m/it/12 ^^V[]; [] ; ^^V[][][]$
  []
 
 [21]
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1415--1416
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1416--1417
  []|[]| 
  []
 
-
-Overfull \hbox (1.57472pt too wide) in paragraph at lines 1448--1449
- []|[][]$\OT1/cmr/m/n/12 (5\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 17)$[]| 
- []
-
 [22] <xymatrix 3x2 198> [23]
-Overfull \hbox (4.5164pt too wide) in paragraph at lines 1632--1633
+Overfull \hbox (4.5164pt too wide) in paragraph at lines 1633--1634
  []|[]| 
  []
 
 [24] [25] [26] [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 2268--2270
+Underfull \hbox (badness 10000) in paragraph at lines 2269--2271
 
  []
 
 [29] [30]
-Overfull \hbox (29.27736pt too wide) in paragraph at lines 2402--2403
+Overfull \hbox (29.27736pt too wide) in paragraph at lines 2403--2404
  []|[] 
  []
 
 
-Overfull \hbox (9.89996pt too wide) in paragraph at lines 2414--2415
+Overfull \hbox (9.89996pt too wide) in paragraph at lines 2415--2416
  []|[] 
  []
 
 [31] [32] [33] [34] [35] <xymatrix 2x2 194> [36] <xymatrix 3x1 102> [37]
 [38] [39]
-LaTeX Font Info:    Try loading font information for U+euf on input line 3069.
+LaTeX Font Info:    Try loading font information for U+euf on input line 3070.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1035,21 +1015,21 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
  [41] [42]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3150.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3151.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3151.
  (./linearlogic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3150.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3151.
 
 Package rerunfilecheck Info: File `linearlogic.out' has not changed.
 (rerunfilecheck)             Checksum: FB370E91E8326866695A5134866E2B33;846.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3150.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3151.
  ) 
 Here is how much of TeX's memory you used:
- 21024 strings out of 493089
- 370251 string characters out of 6134842
- 498155 words of memory out of 5000000
- 23848 multiletter control sequences out of 15000+600000
+ 21025 strings out of 493089
+ 370297 string characters out of 6134842
+ 498062 words of memory out of 5000000
+ 23849 multiletter control sequences out of 15000+600000
  25676 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,54p,3258b,830s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1086,7 +1066,7 @@ dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2015/texmf-dist/
 fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2015/texmf-dist/fonts
 /type1/public/xypic/xycmbt12.pfb>
-Output written on linearlogic.pdf (42 pages, 480906 bytes).
+Output written on linearlogic.pdf (42 pages, 481407 bytes).
 PDF statistics:
  849 PDF objects out of 1000 (max. 8388607)
  764 compressed objects within 8 object streams

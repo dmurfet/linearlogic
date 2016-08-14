@@ -75,7 +75,7 @@
 	\newtheorem{remark}[theorem]{Remark}
 	\newtheorem{question}[theorem]{Question}
 
-\numberwithin{equation}{section}
+%\numberwithin{equation}{section}
 
 % Operators
 \def\eval{\operatorname{ev}}
@@ -93,6 +93,7 @@
 \def\Hom{\operatorname{Hom}}
 \def\modd{\operatorname{mod}}
 \def\Modd{\operatorname{Mod}}
+\def\vacu{\ket{\emptyset}}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\End}{End}
@@ -911,13 +912,13 @@ or equivalently, a linear map ${!} \End_k(V) \lto \End_k(V)$. What is this linea
 {!} \End_k(V) \ar[r]^-{\Delta} & {!} \End_k(V) \otimes {!} \End_k(V) \ar[r]^-{d \otimes d} & \End_k(V)^{\otimes 2} \ar[r]^-{- \circ -} & \End_k(V)
 }
 \end{equation}
-where $\Delta$ is the coproduct, $d$ is the universal map, and the last map is the composition. How to reconcile this linear map with the corresponding program in the $\lambda$-calculus, which has the meaning ``square the input function''? As we will explain below, for $\alpha \in \End_k( V )$ there is a naturally associated element $\ket{o}_\alpha \in {!} \End_k(V)$ with the property that
+where $\Delta$ is the coproduct, $d$ is the universal map, and the last map is the composition. How to reconcile this linear map with the corresponding program in the $\lambda$-calculus, which has the meaning ``square the input function''? As we will explain below, for $\alpha \in \End_k( V )$ there is a naturally associated element $\vacu_\alpha \in {!} \End_k(V)$ with the property that
 \[
-\Delta \ket{o}_\alpha = \ket{o}_\alpha \otimes \ket{o}_\alpha, \qquad d \ket{o}_\alpha = \alpha\,.
+\Delta \vacu_\alpha = \vacu_\alpha \otimes \vacu_\alpha, \qquad d \vacu_\alpha = \alpha\,.
 \]
 Then $\den{\church{2}_A}$ maps this element to
 \begin{equation}\label{eq:2_deals_with_0}
-\ket{o}_\alpha \longmapsto \ket{o}_\alpha \otimes \ket{o}_\alpha \longmapsto \alpha \otimes \alpha \longmapsto \alpha \circ \alpha\,.
+\vacu_\alpha \longmapsto \vacu_\alpha \otimes \vacu_\alpha \longmapsto \alpha \otimes \alpha \longmapsto \alpha \circ \alpha\,.
 \end{equation}
 %For $n > 2$ the Church numeral $\church{n}$ has $n$ occurrences of the left $\multimap$ introduction rule, and so has as its leaves $n + 1$ uses of the axiom rule. The corresponding diagram uses the coproduct $n-1$ times, and feeds the results into $n$ derelictions.
 This demonstrates how the coalgebra ${!} \End_k(V)$ may be used to encode nonlinear maps, such as squaring an endomorphism.
@@ -1148,11 +1149,11 @@ where $\Sym_P(V) = \Sym(V)$ is the symmetric coalgebra. If $e_1,\ldots,e_n$ is a
 \end{equation}
 And in particular, the identity element of $\Sym_P(V)$ is denoted by a vacuum vector
 \begin{equation}\label{eq:vacuum}
-\ket{o}_P := 1 \in \Sym_P(V)\,.
+\vacu_P := 1 \in \Sym_P(V)\,.
 \end{equation}
-We remark that if $\nu = 0$ then $\ket{\nu}_P = 0$ is the zero vector, which is distinct from $\ket{o}_P = 1$. To avoid unwieldy notation we sometimes write $\nu_1 \otimes \cdots \otimes \nu_s \cdot \ket{o}_P$ for $\ket{\nu_1,\ldots,\nu_s}_P$. With this notation the universal map $d: {!} V \lto V$ is defined by
+We remark that if $\nu = 0$ then $\ket{\nu}_P = 0$ is the zero vector, which is distinct from $\vacu_P = 1$. To avoid unwieldy notation we sometimes write $\nu_1 \otimes \cdots \otimes \nu_s \cdot \vacu_P$ for $\ket{\nu_1,\ldots,\nu_s}_P$. With this notation the universal map $d: {!} V \lto V$ is defined by
 \[
-d \ket{o}_P = P, \quad d\ket{\nu}_P = \nu, \quad d\ket{\nu_1,\ldots,\nu_s}_P = 0 \quad s > 1\,.
+d \vacu_P = P, \quad d\ket{\nu}_P = \nu, \quad d\ket{\nu_1,\ldots,\nu_s}_P = 0 \quad s > 1\,.
 \]
 The coproduct on ${!} V$ is defined by
 \begin{equation}\label{eq:lc_coalgebra_1}
@@ -1160,27 +1161,27 @@ The coproduct on ${!} V$ is defined by
 \end{equation}
 where $I$ ranges over all subsets including the empty set, for a subset $I = \{ i_1, \ldots, i_p \}$ we denote by $\nu_I$ the sequence $\nu_{i_1},\ldots,\nu_{i_p}$, and $I^c$ is the complement of $I$. In particular
 \[
-\Delta \ket{o}_P = \ket{o}_P \otimes \ket{o}_P\,.
+\Delta \vacu_P = \vacu_P \otimes \vacu_P\,.
 \]
-The counit ${!} V \lto k$ is defined by $\ket{o}_P \mapsto 1$ and $\ket{\nu_1,\ldots,\nu_s}_P \mapsto 0$ for $s > 0$.
+The counit ${!} V \lto k$ is defined by $\vacu_P \mapsto 1$ and $\ket{\nu_1,\ldots,\nu_s}_P \mapsto 0$ for $s > 0$.
 
 When $V$ is infinite-dimensional we may define ${!} V$ as the direct limit over the coalgebras ${!} W$ for finite-dimensional subspaces $W \subseteq V$. These are sub-coalgebras of ${!} V$, and we may therefore use the same notation as in \eqref{eq:ket_notation} to denote arbitrary elements of ${!} V$. Moreover the coproduct, counit and universal map $d$ are given by the same formulas; see \cite[\S 2.1]{murfet_coalg}. A proof of the fact that the map $d: {!} V \lto V$ described above is universal among linear maps to $V$ from cocommutative coalgebras is given in \cite[Theorem 2.18]{murfet_coalg}, but as has been mentioned this is originally due to Sweedler \cite{sweedler}, see \cite[Appendix B]{murfet_coalg}.
 
 To construct semantics of linear logic we also need an explicit description of liftings, as given by the next theorem which is \cite[Theorem 2.20]{murfet_coalg}. For a set $X$ the set of partitions of $X$ is denoted $\cat{P}_X$.
 
-\begin{theorem}\label{theorem:describe_lifting} Let $W, V$ be vector spaces and $\phi: {!}W \lto V$ a linear map. The unique lifting to a morphism of coalgebras $\Phi: {!}W \lto {!}V$ is given by
+\begin{theorem}\label{theorem:describe_lifting} Let $W, V$ be finite-dimensional vector spaces and $\phi: {!}W \lto V$ a linear map. The unique lifting of $\phi$ to a morphism of coalgebras $\Phi: {!}W \lto {!}V$ is defined for vectors $P, \nu_1,\ldots,\nu_s \in W$ by
 \begin{equation}\label{eq:describe_lift}
-\Phi \ket{ \nu_1, \ldots, \nu_s }_P = \sum_{C \in \cat{P}_{\{1,\ldots,s\}}} \phi \ket{ \nu_{C_{1}} }_P \otimes \cdots \otimes \phi \ket{ \nu_{C_{l}} }_P \cdot \ket{o}_Q
+\Phi \ket{ \nu_1, \ldots, \nu_s }_P = \sum_{C \in \cat{P}_{\{1,\ldots,s\}}} \Big|\, \phi \ket{\nu_{C_{1}} }_P\,, \ldots \,, \phi \ket{ \nu_{C_{l}}}_P \Big\rangle_Q
 \end{equation}
-for $P, \nu_1,\ldots,\nu_s \in W$, where $Q = \phi \ket{o}_P$ and $l$ denotes the length of the partition $C$.
+where $Q = \phi \vacu_P$ and $l$ denotes the length of the partition $C$.
 \end{theorem}
 
 %In constructing the vector space semantics of linear logic we will only encounter \eqref{eq:abbrev_for_prom} in the case where $C = {!} W$. %We will however give examples of lifting that involve other coalgebras, including the next example and in Appendix \ref{section:example_lifting}.
 
-\begin{example}\label{example:lifting_trivial} The simplest example of a coalgebra is the field $k$. Any $P \in V$ determines a linear map $k \lto V$ whose lifting to a morphism of coalgebras $k \lto {!}V$ sends $1 \in k$ to the vacuum $\ket{o}_P$, as shown in the commutative diagram
+\begin{example}\label{example:lifting_trivial} The simplest example of a coalgebra is the field $k$. Any $P \in V$ determines a linear map $k \lto V$ whose lifting to a morphism of coalgebras $k \lto {!}V$ sends $1 \in k$ to the vacuum $\vacu_P$, as shown in the commutative diagram
 \begin{equation}\label{eq:kaiwanxiao}
 \xymatrix@C+2pc{
-k \ar[r]^-{P} \ar@{.>}[dr]_-{\ket{o}_P} & V\\
+k \ar[r]^-{P} \ar@{.>}[dr]_-{\vacu_P} & V\\
 & ! V \ar[u]_-{d}
 }\,.
 \end{equation}
@@ -1385,9 +1386,9 @@ $\alpha \otimes \beta \mapsto \beta \circ \alpha$
 \end{center}
 The map ${!} \End_k(V) \otimes {!} \End_k(V) \lto \End_k(V)$ in \eqref{2_prime_pre} is zero on $\ket{\nu_1,\ldots,\nu_s}_\alpha \otimes \ket{\mu_1,\ldots,\mu_t}_\beta$ for $\alpha,\beta \in \End_k(V)$ unless $s,t \le 1$, and in those cases it is given by
 \begin{align*}
-\ket{o}_\alpha \otimes \ket{o}_\beta &\longmapsto \beta \circ \alpha\\
-\ket{\nu}_\alpha \otimes \ket{o}_\beta &\longmapsto \beta \circ \nu\\
-\ket{o}_\alpha \otimes \ket{\mu}_\beta &\longmapsto \mu \circ \alpha\\
+\vacu_\alpha \otimes \vacu_\beta &\longmapsto \beta \circ \alpha\\
+\ket{\nu}_\alpha \otimes \vacu_\beta &\longmapsto \beta \circ \nu\\
+\vacu_\alpha \otimes \ket{\mu}_\beta &\longmapsto \mu \circ \alpha\\
 \ket{\nu}_\alpha \otimes \ket{\mu}_\beta &\longmapsto \mu \circ \nu\,.
 \end{align*}
 The next deduction rule in $\church{2}_A$ is a contraction:
@@ -1450,11 +1451,11 @@ The next deduction rule in $\church{2}_A$ is a contraction:
 \end{center}
 Let $\phi = \den{\church{2}_A}$ be the linear map ${!} \End_k(V) \lto \End_k(V)$ denoted by this string diagram. Note that this denotation is precisely the composite \eqref{eq:2_as_comp} displayed in Example \ref{example:2_denotation_preview}. We can compute for example the image of $\ket{\nu}_\alpha$ under $\phi$ as follows:
 \begin{gather*}
-\ket{\nu}_\alpha \longmapsto \ket{\nu}_\alpha \otimes \ket{o}_\alpha + \ket{o}_\alpha \otimes \ket{\nu}_\alpha \longmapsto \alpha \circ \nu + \nu \circ \alpha = \{ \nu, \alpha \}\,.
+\ket{\nu}_\alpha \longmapsto \ket{\nu}_\alpha \otimes \vacu_\alpha + \vacu_\alpha \otimes \ket{\nu}_\alpha \longmapsto \alpha \circ \nu + \nu \circ \alpha = \{ \nu, \alpha \}\,.
 \end{gather*}
 This formula is perhaps not surprising as it is the tangent map of the squaring function, see Appendix \ref{section:example_lifting}. Similarly we compute that
 \begin{equation}\label{eq:church_2_den}
-\phi \ket{o}_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu\mu}_\alpha = \{ \nu, \mu \}\,.
+\phi \vacu_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu\mu}_\alpha = \{ \nu, \mu \}\,.
 \end{equation}
 The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \multimap A)$ to the right side of the turnstile, which yields the final diagram:
 % TIKZ ----- Church numeral 2
@@ -1502,7 +1503,7 @@ The denotation of this diagram is the same morphism $\phi$. The reader might lik
 In Example \ref{example:2_denotation_preview} we sketched how to recover the function $\alpha \mapsto \alpha^2$ from the denotation of the Church numeral $\church{2}_A$, but now we can put this on a firmer footing. There is \emph{a priori} no linear map $\den{B} \lto \den{C}$ associated to $\pi$ but there is a function $\den{\pi}_{nl}$ ($nl$ standing for \emph{nonlinear}) defined on $P \in \den{B}$ by lifting to $! \den{B}$ and then applying $\den{\pi}$:
 \begin{equation}\label{eq:lifting_vacua}
 \xymatrix@C+2pc{
-k \ar[r]^-{P} \ar@{.>}[dr]_-{\ket{o}_P} & \den{B} & \den{C}\\
+k \ar[r]^-{P} \ar@{.>}[dr]_-{\vacu_P} & \den{B} & \den{C}\\
 & ! \den{B} \ar[u]_-{d} \ar[ur]_-{\den{\pi}}
 }\,.
 \end{equation}
@@ -1510,7 +1511,7 @@ k \ar[r]^-{P} \ar@{.>}[dr]_-{\ket{o}_P} & \den{B} & \den{C}\\
 That is,
 
 \begin{definition}\label{defn:nonlinear_denotation}
-The function $\den{\pi}_{nl}: \den{B} \lto \den{C}$ is defined by $\den{\pi}_{nl}(P) = \den{\pi} \ket{o}_P$.
+The function $\den{\pi}_{nl}: \den{B} \lto \den{C}$ is defined by $\den{\pi}_{nl}(P) = \den{\pi} \vacu_P$.
 \end{definition}
 
 The discussion above shows that, with $V = \den{A}$,
@@ -1518,7 +1519,7 @@ The discussion above shows that, with $V = \den{A}$,
 \begin{lemma}\label{lemma:nonlinear_recover} $\den{\church{2}_A}_{nl}: \End_k(V) \lto \End_k(V)$ is the map $\alpha \mapsto \alpha^2$.
 \end{lemma}
 
-This completes our explanation of how to represent the Church numeral $\church{2}_A$ as a linear map. From this presentation we see clearly that the non-linearity of the map $\alpha \mapsto \alpha^2$ is concentrated in the promotion step \eqref{eq:lifting_vacua} where the input vector $\alpha$ is turned into a vacuum $\ket{o}_\alpha \in {!} \End_k(V)$. The promotion step is non-linear since $\ket{o}_\alpha + \ket{o}_\beta$ is not a morphism of coalgebras and thus cannot be equal to $\ket{o}_{\alpha + \beta}$. After this step, the duplication, dereliction and composition shown in \eqref{eq:2_deals_with_0} are all linear. %Finally, when $k = \mathbb{C}$ it is interesting to compare $\den{2}_{nl}$ with the map $\alpha \mapsto \alpha^2$ of smooth manifolds $\End_k(V)$, see Appendix \ref{section:example_lifting}.
+This completes our explanation of how to represent the Church numeral $\church{2}_A$ as a linear map. From this presentation we see clearly that the non-linearity of the map $\alpha \mapsto \alpha^2$ is concentrated in the promotion step \eqref{eq:lifting_vacua} where the input vector $\alpha$ is turned into a vacuum $\vacu_\alpha \in {!} \End_k(V)$. The promotion step is non-linear since $\vacu_\alpha + \vacu_\beta$ is not a morphism of coalgebras and thus cannot be equal to $\vacu_{\alpha + \beta}$. After this step, the duplication, dereliction and composition shown in \eqref{eq:2_deals_with_0} are all linear. %Finally, when $k = \mathbb{C}$ it is interesting to compare $\den{2}_{nl}$ with the map $\alpha \mapsto \alpha^2$ of smooth manifolds $\End_k(V)$, see Appendix \ref{section:example_lifting}.
 
 %(see the discussion of tangents in Appendix \ref{section:example_lifting}) 
 
@@ -1539,11 +1540,11 @@ which we denote $\operatorname{prom}( \church{2}_A )$. By definition the denotat
 \]
 with the property that $d \circ \Phi = \phi$, where $\phi = \den{\church{2}_A}$ is as in \eqref{eq:2_as_comp}. From \eqref{eq:church_2_den} and Theorem \ref{theorem:describe_lifting} we compute that, for example
 \begin{align*}
-\Phi \ket{o}_\alpha &= \ket{o}_{\alpha^2}\,,\\
-\Phi \ket{\nu}_\alpha &= \{ \nu, \alpha \} \cdot \ket{o}_{\alpha^2},\\
-\Phi \ket{\nu \mu}_\alpha &= \big( \{ \nu, \mu \} + \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \big) \cdot \ket{o}_{\alpha^2}\,,\\
+\Phi \vacu_\alpha &= \vacu_{\alpha^2}\,,\\
+\Phi \ket{\nu}_\alpha &= \{ \nu, \alpha \} \cdot \vacu_{\alpha^2},\\
+\Phi \ket{\nu \mu}_\alpha &= \big( \{ \nu, \mu \} + \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \big) \cdot \vacu_{\alpha^2}\,,\\
 \Phi \ket{\nu \mu \theta}_\alpha &= \big( \{ \nu, \mu \} \otimes \{ \theta, \alpha \} + \{ \theta, \mu \} \otimes \{ \nu, \alpha \} + \{ \nu, \theta \} \otimes \{ \mu, \alpha \}\\
-&+ \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \otimes \{ \theta, \alpha \} \big) \cdot \ket{o}_{\alpha^2}\,.
+&+ \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \otimes \{ \theta, \alpha \} \big) \cdot \vacu_{\alpha^2}\,.
 \end{align*}
 Note that the commutators, e.g. $\{ \nu, \alpha \}$ are defined using the product internal to $\End_k(V)$, whereas inside the bracket in the last two lines, the terms $\{ \nu, \alpha \}$ and $\{ \mu, \alpha \}$ are multiplied in the algebra $\Sym( \End_k(V) )$ before being made to act on the vacuum.
 \end{example}
@@ -1558,7 +1559,7 @@ Note that the commutators, e.g. $\{ \nu, \alpha \}$ are defined using the produc
 %In this way it is possible to relate semantics such as Ehrhard's finiteness spaces \cite{ehrhard} to the ``universal'' semantics defined above.
 \begin{remark}\label{remark_otherpromotion} As we have already mentioned, there are numerous semantics of linear logic defined using topological vector spaces. The reader curious about how these vector space semantics are related to the ``relational'' style of semantics such as coherence spaces should consult Ehrhard's paper on finiteness spaces \cite{ehrhard}.
 
-One can generate simple variants on the vector space semantics by looking at comonads on the category $\cat{V}$ defined by truncations on the coalgebras ${!} V$. For example, given a vector space $V$, let ${!}_0 V$ denote the subspace of ${!} V$ generated by the vacua $\ket{o}_P$. This is the free space on the underlying \emph{set} of $V$, and it is a subcoalgebra of ${!} V$ given as a coproduct of trivial coalgebras. It is easy to see that this defines an appropriate comonad and gives rise to a semantics of linear logic \cite[\S 4.3]{valiron}. However the semantics defined using ${!} V$ is more interesting, because universality allows us to mix in arbitrary coalgebras $C$. In Appendix \ref{section:example_lifting} we examine the simplest example where $C$ is the dual of the algebra $k[t]/t^2$ and relate this to tangent vectors.
+One can generate simple variants on the vector space semantics by looking at comonads on the category $\cat{V}$ defined by truncations on the coalgebras ${!} V$. For example, given a vector space $V$, let ${!}_0 V$ denote the subspace of ${!} V$ generated by the vacua $\vacu_P$. This is the free space on the underlying \emph{set} of $V$, and it is a subcoalgebra of ${!} V$ given as a coproduct of trivial coalgebras. It is easy to see that this defines an appropriate comonad and gives rise to a semantics of linear logic \cite[\S 4.3]{valiron}. However the semantics defined using ${!} V$ is more interesting, because universality allows us to mix in arbitrary coalgebras $C$. In Appendix \ref{section:example_lifting} we examine the simplest example where $C$ is the dual of the algebra $k[t]/t^2$ and relate this to tangent vectors.
 \end{remark}
 
 \section{Cut-elimination}\label{section:cut_elim}
@@ -2319,7 +2320,7 @@ As discussed in Remark \ref{example:church_2} the denotation of this proof is th
 \end{center}
 which encodes addition on $A$-integers in the following sense: if $\prf{\mathrm{add}}_A$ is cut against two proofs $\church{m}_A$ and $\church{n}_A$ the resulting proof is equivalent under cut-elimination to $\church{m+n}_A$. 
 
-Let us call the result of the cut $\prf{\mathrm{add}}_A( m, n )$, which is a proof of $\inta_A$. One way to see that this reduces to $\underline{m+n}_A$ without laboriously performing cut-elimination by hand is to use a term calculus, as presented in for example \cite{abramsky, benton_etal} or \cite[\S 4]{danos}, to understand the computational content of the proof. Alternatively, with the vector space semantics in mind, one can understand the proof as follows: given a vacuum $\ket{o}_\alpha$ at an endomorphism $\alpha$ of $V = \den{A}$, the contraction step duplicates this to $\ket{o}_\alpha \otimes \ket{o}_\alpha$. The left hand copy of $\ket{o}_\alpha$ is fed into $\underline{m}_A$ yielding $\alpha^m$ and the right hand copy is fed into $\underline{n}_A$ yielding $\alpha^n$. Then the composition ``machine'' composes these outputs to yield $\alpha^{m+n}$.
+Let us call the result of the cut $\prf{\mathrm{add}}_A( m, n )$, which is a proof of $\inta_A$. One way to see that this reduces to $\underline{m+n}_A$ without laboriously performing cut-elimination by hand is to use a term calculus, as presented in for example \cite{abramsky, benton_etal} or \cite[\S 4]{danos}, to understand the computational content of the proof. Alternatively, with the vector space semantics in mind, one can understand the proof as follows: given a vacuum $\vacu_\alpha$ at an endomorphism $\alpha$ of $V = \den{A}$, the contraction step duplicates this to $\vacu_\alpha \otimes \vacu_\alpha$. The left hand copy of $\vacu_\alpha$ is fed into $\underline{m}_A$ yielding $\alpha^m$ and the right hand copy is fed into $\underline{n}_A$ yielding $\alpha^n$. Then the composition ``machine'' composes these outputs to yield $\alpha^{m+n}$.
 \end{example}
 
 To generate a hierarchy of increasingly complex proofs from addition and multiplication we employ \emph{iteration}.
@@ -2810,7 +2811,7 @@ We only sketch the rest of the cut-elimination process: next, the derelictions i
 %\begin{definition}\label{defn:nonlinear_deno} Given a proof $\pi$ of a sequent $!A \vdash B$ let $\langle \pi \rangle$ denote the function
 %\begin{gather*}
 %\langle \pi \rangle: \den{A} \lto \den{B},\\
-%\langle \pi \rangle(P) = \den{\pi} \ket{o}_P\,.
+%\langle \pi \rangle(P) = \den{\pi} \vacu_P\,.
 %\end{gather*}
 %\end{definition}
 
@@ -2830,7 +2831,7 @@ with $\varphi^{-1}( (t) ) = x$. Such a morphism of algebras is determined by its
 \]
 The map $\varphi|_{V^*}$ is also determined by its dual, which is a linear map $\phi: \cat{T} \lto V$. By the universal property, this lifts to a morphism of coalgebras $\Phi: \cat{T} \lto {!}V$. If $\phi$ is determined by a pair of points $(P,Q) \in V^{\oplus 2}$ as above, then it may checked directly that
 \[
-\Phi( 1 ) = \ket{o}_P, \qquad \Phi( \varepsilon ) = \ket{ Q }_P
+\Phi( 1 ) = \vacu_P, \qquad \Phi( \varepsilon ) = \ket{ Q }_P
 \]
 is a morphism of coalgebras lifting $\phi$.
 %Using the dual of $k[t]/t^N$ for various powers $N$ we may in this way make an identification between ${!} V$ and the infinite jet-space of $V$.
@@ -2838,7 +2839,7 @@ is a morphism of coalgebras lifting $\phi$.
 
 Motivated by this example, we make a preliminary investigation into tangent vectors at proof denotations. Let $A,B$ be types with finite-dimensional denotations $\den{A}, \den{B}$.
 
-\begin{definition} Given a proof $\pi$ of $\vdash A$ a \emph{tangent vector} at $\pi$ is a morphism of coalgebras $\theta: \cat{T} \lto {!} \den{A}$ with the property that $\theta(1) = \ket{o}_{\den{\pi}}$, or equivalently that the diagram
+\begin{definition} Given a proof $\pi$ of $\vdash A$ a \emph{tangent vector} at $\pi$ is a morphism of coalgebras $\theta: \cat{T} \lto {!} \den{A}$ with the property that $\theta(1) = \vacu_{\den{\pi}}$, or equivalently that the diagram
 \begin{equation}
 \xymatrix@C+2pc{
 k \ar[d]_-{1} \ar[r]^-{\den{\pi}} & \den{A}\\
@@ -2852,7 +2853,7 @@ It follows from Example \ref{example:tangent_coalgebra} that there is a bijectio
 \[
 \den{A} \lto T_{\pi}
 \]
-sending $Q \in \den{A}$ to the coalgebra morphism $\theta$ with $\theta(1) = \ket{o}_{\den{\pi}}$ and $\theta(\varepsilon) = \ket{Q}_{\den{\pi}}$. We use this bijection to equip $T_{\pi}$ with the structure of a vector space.
+sending $Q \in \den{A}$ to the coalgebra morphism $\theta$ with $\theta(1) = \vacu_{\den{\pi}}$ and $\theta(\varepsilon) = \ket{Q}_{\den{\pi}}$. We use this bijection to equip $T_{\pi}$ with the structure of a vector space.
 
 Note that the denotation of a program not only maps inputs to outputs (if we identify inputs and outputs with vacuum vectors) but also tangent vectors to tangent vectors. To wit, if $\rho$ is a proof of a sequent $!A \vdash B$ with denotation $\lambda: {!} \den{A} \lto \den{B}$, then composing a tangent vector $\theta$ at a proof $\pi$ of $\vdash A$ with the lifting $\Lambda$ of $\lambda$ leads to a tangent vector at the cut of $\rho$ against the promotion of $\pi$. That is, the linear map
 \begin{equation}\label{eq:fake_tangent_map}
