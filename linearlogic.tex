@@ -156,10 +156,6 @@
 
 \section{Introduction}
 
-%- Logic is about structure of sets of proofs
-%- Convince them there is is structure
-%- Complexity is about interaction between proofs and cut-elimination
-
 Logic is familiar to mathematicians in other fields primarily as the study of the \emph{truth} of mathematical propositions, but there is an alternative tradition which views logic as being about the structure of the \emph{collection of proofs}. The contrast between these points of view can be explained by an analogy (not perfect, but perhaps helpful) between propositions in logic and differential equations. In this analogy the truth of a proposition corresponds to the \emph{existence} of a solution to a differential equation, and the set of proofs of a proposition plays the role of the space of solutions. There is often a great deal of redundancy in the space of solutions, in the sense that two solutions which are apparently different may be related by a symmetry of the underlying manifold, and thus are in essence ``the same''. Moreover there are examples, such as the Seiberg-Witten equations, where the moduli space obtained by identifying solutions related by symmetries is a compact manifold, whose ``finite'' geometry is the key to understanding the content of the original equations.
 
 There was an analogous phenomenon at the founding of formal symbolic logic, when a central problem was to establish the consistency of arithmetic. While working on this problem Gentzen discovered a new style of presenting proofs, called the \emph{sequent calculus}, in which the set of proofs of any arithmetic proposition is revealed to contain a great deal of redundancy: many apparently different proofs actually have ``the same'' logical content. This redundancy has its origin in applications of \emph{Modus Ponens}, which is known in sequent calculus as the \emph{cut rule}. This rule creates indirection and implicitness in proofs, by making theorems depend on lemmas (whose proofs are somewhere else, hence the indirection). However this implicitness can be ``explicated'' without essentially changing the content of the proof; this deep result is known as Gentzen's \emph{Hauptsatz}. Identifying proofs related by this explicitation (called \emph{cut-elimination}) yields the much more tractable set of \emph{cut-free proofs}, the analogue of the compact manifold of solutions modulo symmetry. By reducing consistency to a problem about cut-free proofs, where it is trivial, Gentzen was able to prove the consistency of arithmetic.
@@ -173,7 +169,7 @@ We begin in Section \ref{section:sketch} with some examples of proofs in linear 
 Most of what we have to say is well-known, with the exception of some aspects of the vector space semantics in Section \ref{section:vector_space_sem}. There are many aspects of logic and its connections with other subjects that we cannot cover: for great introductions to proof theory and the history of the subject see \cite[Chapter 1]{girard_prooftypes} and \cite[\S 1]{mellies}, and for a well-written account of analogies between logic, topology and physics see \cite{baez}.
 \\
 
-\emph{Acknowledgements.} Thanks to Nils Carqueville, Jesse Burke, and Andante.
+\emph{Acknowledgements.} Thanks to Nils Carqueville, Jesse Burke, Greg Restall, Shawn Standefer, Kazushige Terui and Andante.
 \\
 
 \section{A sketch of linear logic proofs as algorithms}\label{section:sketch}
@@ -1173,7 +1169,7 @@ To construct semantics of linear logic we also need an explicit description of l
 \begin{equation}\label{eq:describe_lift}
 \Phi \ket{ \nu_1, \ldots, \nu_s }_P = \sum_{C \in \cat{P}_{\{1,\ldots,s\}}} \Big|\, \phi \ket{\nu_{C_{1}} }_P\,, \ldots \,, \phi \ket{ \nu_{C_{l}}}_P \Big\rangle_Q
 \end{equation}
-where $Q = \phi \vacu_P$ and $l$ denotes the length of the partition $C$.
+where $Q = \phi \vacu_P$ and $l$ denotes the length of the partition $C$. Moreover $\Phi \ket{\emptyset}_P = \ket{\emptyset}_Q$.
 \end{theorem}
 
 %In constructing the vector space semantics of linear logic we will only encounter \eqref{eq:abbrev_for_prom} in the case where $C = {!} W$. %We will however give examples of lifting that involve other coalgebras, including the next example and in Appendix \ref{section:example_lifting}.
@@ -1500,7 +1496,7 @@ The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \mul
 The denotation of this diagram is the same morphism $\phi$. The reader might like to compare this style of diagram for $\church{2}_A$ to the corresponding proof-net in \cite[\S 5.3.2]{girard_llogic}. 
 \end{example}
 
-In Example \ref{example:2_denotation_preview} we sketched how to recover the function $\alpha \mapsto \alpha^2$ from the denotation of the Church numeral $\church{2}_A$, but now we can put this on a firmer footing. There is \emph{a priori} no linear map $\den{B} \lto \den{C}$ associated to $\pi$ but there is a function $\den{\pi}_{nl}$ ($nl$ standing for \emph{nonlinear}) defined on $P \in \den{B}$ by lifting to $! \den{B}$ and then applying $\den{\pi}$:
+In Example \ref{example:2_denotation_preview} we sketched how to recover the function $\alpha \mapsto \alpha^2$ from the denotation of the Church numeral $\church{2}_A$, but now we can put this on a firmer footing. There is \emph{a priori} no linear map $\den{B} \lto \den{C}$ associated to a proof $\pi$ of ${!} B \vdash C$ but there is a function $\den{\pi}_{nl}$ ($nl$ standing for \emph{nonlinear}) defined on $P \in \den{B}$ by lifting to $! \den{B}$ and then applying $\den{\pi}$:
 \begin{equation}\label{eq:lifting_vacua}
 \xymatrix@C+2pc{
 k \ar[r]^-{P} \ar@{.>}[dr]_-{\vacu_P} & \den{B} & \den{C}\\
@@ -2262,9 +2258,9 @@ This last diagram is the denotation of $\church{4}_A$, so we conclude that (at l
 
 A measure of the strength or expressiveness of a logic is the class of functions $\mathbb{N} \lto \mathbb{N}$ that can be encoded as proofs. In first-order intuitionistic linear logic $\ILL$ we have already seen how to encode multiplication by an integer as a proof (Definition \ref{definition:mult_m}) and addition will be addressed below (Example \ref{example:addition}) so we deduce that for any formula $A$, any polynomial function $f: \mathbb{N} \lto \mathbb{N}$ may be encoded as a proof of
 \begin{equation}\label{eq:intatointa}
-\inta_A \vdash \inta_A\,.
+{!}\inta_A \vdash \inta_A\,.
 \end{equation}
-More precisely, for any polynomial function $f$ there exists a proof $F$ of the above sequent with the property that for any integer $n \ge 0$, the cut of $F$ against $\church{n}_A$ reduces under cut-elimination to $\underline{f(n)}_A$. This is close to being a complete list of the functions $f$ that can be encoded as proofs of the sequent \eqref{eq:intatointa}, which comes as a bit of a disappointment~\cite{schwicht}. However, the good news is that more expressive power can be obtained if we allow ourselves to use proofs of $\inta_B \vdash \inta_A$ where $B$ is somehow constructed from $A$. For example, we will see below how to encode exponentials using $B = \inta_A$. 
+More precisely, for any polynomial function $f$ there exists a proof $F$ of the above sequent with the property that for any integer $n \ge 0$, the cut of $F$ against $\church{n}_A$ reduces under cut-elimination to $\underline{f(n)}_A$. This is close to being a complete list of the functions $f$ that can be encoded as proofs of the sequent \eqref{eq:intatointa}, which comes as a bit of a disappointment; see \cite{schwicht} and \cite{zakrzewski}. However, the good news is that more expressive power can be obtained if we allow ourselves to use proofs of $\inta_B \vdash \inta_A$ where $B$ is somehow constructed from $A$. For example, we will see below how to encode exponentials using $B = \inta_A$. 
 
 A very expressive system can be obtained by allowing the base type $B$ to be computed from $A$ at ``run time'', that is, during cut-elimination. This is achieved by adding quantifiers to the language of $\ILL$, and the resulting logic is called \emph{second-order intuitionistic linear logic} $\ILL_2$. One indication of the expressiveness of this extension is that System F \cite[\S 11]{girard_prooftypes} otherwise known as the polymorphic $\lambda$-calculus, embeds into $\ILL_2$ \cite[\S 5.2]{girard_llogic}. These systems have a growing influence on practical programming languages: for example the language Haskell compiles internally to an extension of System F. 
 \\
@@ -3134,6 +3130,9 @@ B.~Valiron and S.~Zdancewic, \textsl{Finite vector spaces as model of simply-typ
 
 \bibitem{quillen}
 D.~Quillen, \textsl{Rational homotopy theory}, The Annals of Mathematics, Second Series, Vol. 90, No. 2, 205--295, 1969.
+
+\bibitem{zakrzewski}
+M.~Zakrzewski, \textsl{Definable functions in the simply typed lambda-calculus}, \href{https://arxiv.org/abs/cs/0701022}{[arXiv:cs/0701022]}.
 
 %\bibitem{univalent}
 %The Univalent Foundations Program, \textsl{Homotopy {T}ype {T}heory: {U}nivalent {F}oundations of {M}athematics}, Institute for Advanced Study (Princeton), 2013.
