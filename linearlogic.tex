@@ -1451,7 +1451,7 @@ Let $\phi = \den{\church{2}_A}$ be the linear map ${!} \End_k(V) \lto \End_k(V)$
 \end{gather*}
 This formula is perhaps not surprising as it is the tangent map of the squaring function, see Appendix \ref{section:example_lifting}. Similarly we compute that
 \begin{equation}\label{eq:church_2_den}
-\phi \vacu_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu\mu}_\alpha = \{ \nu, \mu \}\,.
+\phi \vacu_\alpha = \alpha^2, \qquad \phi \ket{\nu}_\alpha = \{ \nu, \alpha \}\,, \qquad \phi \ket{\nu,\mu}_\alpha = \{ \nu, \mu \}\,.
 \end{equation}
 The final step in the proof of $\church{2}_A$ consists of moving the ${!}(A \multimap A)$ to the right side of the turnstile, which yields the final diagram:
 % TIKZ ----- Church numeral 2
@@ -1538,8 +1538,8 @@ with the property that $d \circ \Phi = \phi$, where $\phi = \den{\church{2}_A}$ 
 \begin{align*}
 \Phi \vacu_\alpha &= \vacu_{\alpha^2}\,,\\
 \Phi \ket{\nu}_\alpha &= \{ \nu, \alpha \} \cdot \vacu_{\alpha^2},\\
-\Phi \ket{\nu \mu}_\alpha &= \big( \{ \nu, \mu \} + \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \big) \cdot \vacu_{\alpha^2}\,,\\
-\Phi \ket{\nu \mu \theta}_\alpha &= \big( \{ \nu, \mu \} \otimes \{ \theta, \alpha \} + \{ \theta, \mu \} \otimes \{ \nu, \alpha \} + \{ \nu, \theta \} \otimes \{ \mu, \alpha \}\\
+\Phi \ket{\nu, \mu}_\alpha &= \big( \{ \nu, \mu \} + \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \big) \cdot \vacu_{\alpha^2}\,,\\
+\Phi \ket{\nu, \mu, \theta}_\alpha &= \big( \{ \nu, \mu \} \otimes \{ \theta, \alpha \} + \{ \theta, \mu \} \otimes \{ \nu, \alpha \} + \{ \nu, \theta \} \otimes \{ \mu, \alpha \}\\
 &+ \{ \nu, \alpha \} \otimes \{ \mu, \alpha \} \otimes \{ \theta, \alpha \} \big) \cdot \vacu_{\alpha^2}\,.
 \end{align*}
 Note that the commutators, e.g. $\{ \nu, \alpha \}$ are defined using the product internal to $\End_k(V)$, whereas inside the bracket in the last two lines, the terms $\{ \nu, \alpha \}$ and $\{ \mu, \alpha \}$ are multiplied in the algebra $\Sym( \End_k(V) )$ before being made to act on the vacuum.

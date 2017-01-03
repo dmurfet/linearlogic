@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.17)  4 JAN 2017 10:42
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 DEC 2016 18:26
->>>>>>> origin/master
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.17)  4 JAN 2017 10:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1009,11 +1005,7 @@ Overfull \hbox (9.89996pt too wide) in paragraph at lines 2411--2412
 
 [31] [32] [33] [34] [35] <xymatrix 2x2 194> [36] <xymatrix 3x1 102> [37]
 [38] [39]
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for U+euf on input line 3070.
-=======
 LaTeX Font Info:    Try loading font information for U+euf on input line 3066.
->>>>>>> origin/master
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1030,27 +1022,13 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3150.
 
 Package rerunfilecheck Info: File `linearlogic.out' has not changed.
 (rerunfilecheck)             Checksum: FB370E91E8326866695A5134866E2B33;846.
-<<<<<<< HEAD
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3151.
- ) 
-Here is how much of TeX's memory you used:
- 21093 strings out of 493014
- 372297 string characters out of 6133351
- 501592 words of memory out of 5000000
- 23974 multiletter control sequences out of 15000+600000
-=======
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3150.
  ) 
 Here is how much of TeX's memory you used:
  21095 strings out of 493014
  372324 string characters out of 6133351
- 500625 words of memory out of 5000000
+ 500632 words of memory out of 5000000
  23975 multiletter control sequences out of 15000+600000
->>>>>>> origin/master
  25676 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,54p,3258b,813s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1087,18 +1065,10 @@ dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2016/texmf-dist/
 fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2016/texmf-dist/fonts
 /type1/public/xypic/xycmbt12.pfb>
-<<<<<<< HEAD
-Output written on linearlogic.pdf (42 pages, 481501 bytes).
+Output written on linearlogic.pdf (42 pages, 481865 bytes).
 PDF statistics:
- 850 PDF objects out of 1000 (max. 8388607)
- 765 compressed objects within 8 object streams
- 237 named destinations out of 1000 (max. 500000)
-=======
-Output written on linearlogic.pdf (42 pages, 481763 bytes).
-PDF statistics:
- 852 PDF objects out of 1000 (max. 8388607)
- 767 compressed objects within 8 object streams
+ 853 PDF objects out of 1000 (max. 8388607)
+ 768 compressed objects within 8 object streams
  238 named destinations out of 1000 (max. 500000)
->>>>>>> origin/master
  117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
