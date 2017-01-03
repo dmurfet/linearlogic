@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.17)  4 JAN 2017 10:42
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 DEC 2016 18:26
+>>>>>>> origin/master
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -890,21 +894,21 @@ LaTeX Info: Redefining \nameref on input line 123.
 \openout6 = `linearlogic.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 173.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 169.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 173.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 169.
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+Underfull \hbox (badness 10000) in paragraph at lines 172--174
 
  []
 
@@ -922,90 +926,94 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--178
 \myCenter3=\dimen298
 \myScoreEnd3=\dimen299
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--223
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 304.
+(hyperref)                removing `math shift' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 304.
+(hyperref)                removing `\lambda' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 304.
+(hyperref)                removing `math shift' on input line 300.
 
 [5]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 322.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 318.
  [6]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 383.
+d on input line 379.
 
 [7] [8]
-Overfull \hbox (25.06563pt too wide) in paragraph at lines 587--588
+Overfull \hbox (25.06563pt too wide) in paragraph at lines 583--584
  []|[]| 
  []
 
 [9]
-Overfull \hbox (6.93896pt too wide) in paragraph at lines 669--670
+Overfull \hbox (6.93896pt too wide) in paragraph at lines 665--666
  []|[]| 
  []
 
 [10] [11] [12] [13] <xymatrix 4x1 150> [14] [15] <xymatrix 2x1 100> [16]
 <xymatrix 2x2 150> <xymatrix 3x1 92> [17] [18] <xymatrix 2x2 150> [19] [20]
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1230--1251
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1226--1247
  [] 
  []
 
 
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1254--1284
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1250--1280
  [] 
  []
 
 
-Overfull \hbox (7.49011pt too wide) in paragraph at lines 1288--1331
+Overfull \hbox (7.49011pt too wide) in paragraph at lines 1284--1327
  [] 
  []
 
 
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1352--1353
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1348--1349
  []|[]| 
  []
 
 [21]
-Overfull \hbox (3.01445pt too wide) in paragraph at lines 1416--1417
+Overfull \hbox (3.01445pt too wide) in paragraph at lines 1412--1413
  []|[]| 
  []
 
 [22] <xymatrix 3x2 198> [23]
-Overfull \hbox (4.5164pt too wide) in paragraph at lines 1633--1634
+Overfull \hbox (4.5164pt too wide) in paragraph at lines 1629--1630
  []|[]| 
  []
 
 [24] [25] [26] [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 2269--2271
+Underfull \hbox (badness 10000) in paragraph at lines 2265--2267
 
  []
 
 [29] [30]
-Overfull \hbox (29.27736pt too wide) in paragraph at lines 2403--2404
+Overfull \hbox (29.27736pt too wide) in paragraph at lines 2399--2400
  []|[] 
  []
 
 
-Overfull \hbox (9.89996pt too wide) in paragraph at lines 2415--2416
+Overfull \hbox (9.89996pt too wide) in paragraph at lines 2411--2412
  []|[] 
  []
 
 [31] [32] [33] [34] [35] <xymatrix 2x2 194> [36] <xymatrix 3x1 102> [37]
 [38] [39]
+<<<<<<< HEAD
 LaTeX Font Info:    Try loading font information for U+euf on input line 3070.
+=======
+LaTeX Font Info:    Try loading font information for U+euf on input line 3066.
+>>>>>>> origin/master
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1014,14 +1022,15 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
  [41] [42]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3151.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3151.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3150.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3150.
  (./linearlogic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3151.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3150.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3150.
 
 Package rerunfilecheck Info: File `linearlogic.out' has not changed.
 (rerunfilecheck)             Checksum: FB370E91E8326866695A5134866E2B33;846.
+<<<<<<< HEAD
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1033,6 +1042,15 @@ Here is how much of TeX's memory you used:
  372297 string characters out of 6133351
  501592 words of memory out of 5000000
  23974 multiletter control sequences out of 15000+600000
+=======
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3150.
+ ) 
+Here is how much of TeX's memory you used:
+ 21095 strings out of 493014
+ 372324 string characters out of 6133351
+ 500625 words of memory out of 5000000
+ 23975 multiletter control sequences out of 15000+600000
+>>>>>>> origin/master
  25676 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,54p,3258b,813s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1069,10 +1087,18 @@ dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2016/texmf-dist/
 fonts/type1/public/xypic/xycmat12.pfb></usr/local/texlive/2016/texmf-dist/fonts
 /type1/public/xypic/xycmbt12.pfb>
+<<<<<<< HEAD
 Output written on linearlogic.pdf (42 pages, 481501 bytes).
 PDF statistics:
  850 PDF objects out of 1000 (max. 8388607)
  765 compressed objects within 8 object streams
  237 named destinations out of 1000 (max. 500000)
+=======
+Output written on linearlogic.pdf (42 pages, 481763 bytes).
+PDF statistics:
+ 852 PDF objects out of 1000 (max. 8388607)
+ 767 compressed objects within 8 object streams
+ 238 named destinations out of 1000 (max. 500000)
+>>>>>>> origin/master
  117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

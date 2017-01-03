@@ -7,5 +7,6 @@ Comments and questions on the paper are [welcome in the wiki](https://github.com
 
 ## Changelog
 
-* 4-1-17 Added citations of Hyland-Schalk, and corrected some typos (most significantly in Equation (7.1) which had a missing bang). Added reference to 
 * 15-8-16 Changed notation for vacuums, and fixed some typos.
+* 20-12-16 Improved notation and added s = 0 case to Theorem 5.5, clarified definition surrounding Eq 45, fixed missing exponential on the left hand side of Eq 56, added reference to Zakrzewski.
+* 4-1-17 Added citations of Hyland-Schalk, and corrected some typos (most significantly in Equation (7.1) which had a missing bang). Added reference to 
