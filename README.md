@@ -7,4 +7,5 @@ Comments and questions on the paper are [welcome in the wiki](https://github.com
 
 ## Changelog
 
+* 4-1-17 Added citations of Hyland-Schalk, and corrected some typos (most significantly in Equation (7.1) which had a missing bang). Added reference to 
 * 15-8-16 Changed notation for vacuums, and fixed some typos.
